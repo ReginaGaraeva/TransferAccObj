@@ -20,6 +20,8 @@ namespace ObjectTransferWCF
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: Добавьте здесь операции служб
+
+
     }
 
 

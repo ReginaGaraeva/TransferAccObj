@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AccountingObjectModel.cs" />
+    <Compile Include="Models\ResponseModel.cs" />
     <Compile Include="ObjectTransferService.svc.cs">
       <DependentUpon>ObjectTransferService.svc</DependentUpon>
     </Compile>

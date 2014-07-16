@@ -8,25 +8,47 @@ namespace ObjectTransferWCF.Services
 {
     public class LogService : ILogService
     {
-        void WriteInfo(string message)
+        public void WriteInfo(string message)
         {
             using (var context = new ObjectTransferDBEntities())
             {
                context.SaveChanges();
+               context.Logs.Add(
+                   new Logs
+                   {
+                       Message = message,
+                       Date = DateTime.Now,
+                       MessageType = false,
+                       StackTrace = null,
+                   });
             }
         }
 
-        void WriteError(string message)
+        public void WriteError(string message)
         {
             using (var context = new ObjectTransferDBEntities())
             {
+                context.Logs.Add(
+                    new Logs
+                    {
+                        Message = message,
+                        Date = DateTime.Now,
+                        MessageType = true,
+                        StackTrace = null,
+                    });
                 context.SaveChanges();
             }
         }
 
-        void DeleteLogById(int id)
+        public void DeleteLogById(int id)
         {
-
+            using (var context = new ObjectTransferDBEntities())
+            {
+                context.Logs.Remove((from logs in context.Logs 
+                                     where logs.ID == id 
+                                     select logs).FirstOrDefault());
+                context.SaveChanges();
+            }
         }
     }
 }

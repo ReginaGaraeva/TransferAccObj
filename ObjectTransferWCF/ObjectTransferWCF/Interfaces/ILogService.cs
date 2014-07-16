@@ -10,6 +10,6 @@ namespace ObjectTransferWCF.Interfaces
     {
         void WriteInfo(string message);
         void WriteError(string message);
-        bool DeleteLogById(int id);
+        void DeleteLogById(int id);
     }
 }

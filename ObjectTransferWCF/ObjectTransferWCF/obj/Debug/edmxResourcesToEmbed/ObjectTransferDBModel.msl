@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ObjectTransferDBModelStoreContainer" CdmEntityContainer="ObjectTransferDBEntities">
-    <EntitySetMapping Name="LogsEntity">
-      <EntityTypeMapping TypeName="IsTypeOf(ObjectTransferDBModel.Logs)">
-        <MappingFragment StoreEntitySet="LogsEntity">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Message" ColumnName="Message" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="ObjectTransferDBModel.Logs">
+        <MappingFragment StoreEntitySet="Logs">
           <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="MessageType" ColumnName="MessageType" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TasksEntity">
-      <EntityTypeMapping TypeName="IsTypeOf(ObjectTransferDBModel.Tasks)">
-        <MappingFragment StoreEntitySet="TasksEntity">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Task" ColumnName="Task" />
-          <ScalarProperty Name="Parameters" ColumnName="Parameters" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
+    <EntitySetMapping Name="Tasks">
+      <EntityTypeMapping TypeName="ObjectTransferDBModel.Tasks">
+        <MappingFragment StoreEntitySet="Tasks">
           <ScalarProperty Name="NeedRecall" ColumnName="NeedRecall" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Parameters" ColumnName="Parameters" />
+          <ScalarProperty Name="Task" ColumnName="Task" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

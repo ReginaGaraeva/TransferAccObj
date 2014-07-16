@@ -1,0 +1,5 @@
+D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\ObjectTransferWCF.dll
+D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\ObjectTransferWCF.pdb
+D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\obj\Debug\ObjectTransferWCF.csprojResolveAssemblyReference.cache
+D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\obj\Debug\ObjectTransferWCF.dll
+D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\obj\Debug\ObjectTransferWCF.pdb

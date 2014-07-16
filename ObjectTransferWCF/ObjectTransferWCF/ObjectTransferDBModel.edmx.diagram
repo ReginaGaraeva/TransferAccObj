@@ -5,8 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="6dfb875514da4266b12695ec14e89d95" Name="Диаграмма1" >
-        <EntityTypeShape EntityType="ObjectTransferDBModel.Logs" Width="1.75" PointX="0.75" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ObjectTransferDBModel.Tasks" Width="1.5" PointX="3" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

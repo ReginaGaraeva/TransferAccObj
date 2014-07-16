@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 07/16/2014 10:58:12
+-- Date Created: 07/16/2014 11:20:43
 -- Generated from EDMX file: D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\ObjectTransferDBModel.edmx
 -- --------------------------------------------------
 

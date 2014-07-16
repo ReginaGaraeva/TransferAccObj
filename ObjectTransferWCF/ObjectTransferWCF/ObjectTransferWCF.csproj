@@ -39,7 +39,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -65,6 +71,21 @@
   <ItemGroup>
     <Compile Include="Models\AccountingObjectModel.cs" />
     <Compile Include="Models\ResponseModel.cs" />
+    <Compile Include="ObjectTransferDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ObjectTransferDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectTransferDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ObjectTransferDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectTransferDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ObjectTransferDBModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="ObjectTransferService.svc.cs">
       <DependentUpon>ObjectTransferService.svc</DependentUpon>
     </Compile>
@@ -75,12 +96,33 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="ObjectTransferDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ObjectTransferDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ObjectTransferDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ObjectTransferDBModel.edmx</DependentUpon>
+      <LastGenOutput>ObjectTransferDBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ObjectTransferDBModel.edmx.diagram">
+      <DependentUpon>ObjectTransferDBModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="ObjectTransferDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ObjectTransferDBModel.edmx</DependentUpon>
+      <LastGenOutput>ObjectTransferDBModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

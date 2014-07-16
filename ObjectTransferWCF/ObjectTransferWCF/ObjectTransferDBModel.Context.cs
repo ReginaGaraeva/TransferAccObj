@@ -25,7 +25,7 @@ namespace ObjectTransferWCF
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Logs> LogsEntity { get; set; }
-        public DbSet<Tasks> TasksEntity { get; set; }
+        public DbSet<Logs> Logs { get; set; }
+        public DbSet<Tasks> Tasks { get; set; }
     }
 }

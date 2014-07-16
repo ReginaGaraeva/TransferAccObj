@@ -5,59 +5,59 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ObjectTransferDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="ObjectTransferDBModelStoreContainer">
-    <EntitySet Name="LogsEntity" EntityType="ObjectTransferDBModel.Store.LogsEntity" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TasksEntity" EntityType="ObjectTransferDBModel.Store.TasksEntity" store:Type="Tables" Schema="dbo" />
-  </EntityContainer>
-  <EntityType Name="LogsEntity">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Date" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="StackTrace" Type="nvarchar(max)" Nullable="true" />
-  </EntityType>
-  <EntityType Name="TasksEntity">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Task" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Parameters" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Date" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="NeedRecall" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-</Schema></edmx:StorageModels>
+        <EntityContainer Name="ObjectTransferDBModelStoreContainer">
+          <EntitySet Name="Logs" EntityType="ObjectTransferDBModel.Store.Logs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tasks" EntityType="ObjectTransferDBModel.Store.Tasks" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="MessageType" Type="bit" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StackTrace" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Tasks">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Task" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Parameters" Type="nvarchar" MaxLength="500" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="NeedRecall" Type="bit" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ObjectTransferDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ObjectTransferDBEntities" p1:LazyLoadingEnabled="true" >
-          <EntitySet Name="LogsEntity" EntityType="ObjectTransferDBModel.Logs" />
-          <EntitySet Name="TasksEntity" EntityType="ObjectTransferDBModel.Tasks" />
+          <EntitySet Name="Logs" EntityType="ObjectTransferDBModel.Logs" />
+          <EntitySet Name="Tasks" EntityType="ObjectTransferDBModel.Tasks" />
         </EntityContainer>
         <EntityType Name="Logs">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Date" Nullable="false" />
-          <Property Type="String" Name="Message" Nullable="false" />
-          <Property Type="String" Name="Type" Nullable="false" />
-          <Property Type="String" Name="StackTrace" Nullable="true" />
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
+          <Property Type="Boolean" Name="MessageType" Nullable="false" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StackTrace" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Tasks">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Task" Nullable="false" />
-          <Property Type="String" Name="Parameters" Nullable="true" />
-          <Property Type="String" Name="Date" Nullable="false" />
-          <Property Type="String" Name="Status" Nullable="false" />
-          <Property Type="String" Name="NeedRecall" Nullable="false" />
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Task" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Parameters" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
+          <Property Type="Boolean" Name="Status" Nullable="false" />
+          <Property Type="Boolean" Name="NeedRecall" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -65,30 +65,30 @@
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ObjectTransferDBModelStoreContainer" CdmEntityContainer="ObjectTransferDBEntities">
-    <EntitySetMapping Name="LogsEntity">
-      <EntityTypeMapping TypeName="IsTypeOf(ObjectTransferDBModel.Logs)">
-        <MappingFragment StoreEntitySet="LogsEntity">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Message" ColumnName="Message" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TasksEntity">
-      <EntityTypeMapping TypeName="IsTypeOf(ObjectTransferDBModel.Tasks)">
-        <MappingFragment StoreEntitySet="TasksEntity">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Task" ColumnName="Task" />
-          <ScalarProperty Name="Parameters" ColumnName="Parameters" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="NeedRecall" ColumnName="NeedRecall" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-  </EntityContainerMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="ObjectTransferDBModel.Logs">
+              <MappingFragment StoreEntitySet="Logs">
+                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="MessageType" ColumnName="MessageType" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tasks">
+            <EntityTypeMapping TypeName="ObjectTransferDBModel.Tasks">
+              <MappingFragment StoreEntitySet="Tasks">
+                <ScalarProperty Name="NeedRecall" ColumnName="NeedRecall" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Parameters" ColumnName="Parameters" />
+                <ScalarProperty Name="Task" ColumnName="Task" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->

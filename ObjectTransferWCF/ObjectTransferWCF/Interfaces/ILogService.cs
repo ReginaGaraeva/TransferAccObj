@@ -10,7 +10,6 @@ namespace ObjectTransferWCF.Interfaces
     {
         void WriteInfo(string message);
         void WriteError(string message);
-        List<ILogService> GetLogsByDate(DateTime dateFrom, DateTime dateEnd = null);
         bool DeleteLogById(int id);
     }
 }

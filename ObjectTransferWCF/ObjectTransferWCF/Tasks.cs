@@ -14,11 +14,11 @@ namespace ObjectTransferWCF
     
     public partial class Tasks
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string Task { get; set; }
         public string Parameters { get; set; }
-        public string Date { get; set; }
-        public string Status { get; set; }
-        public string NeedRecall { get; set; }
+        public System.DateTime Date { get; set; }
+        public bool Status { get; set; }
+        public bool NeedRecall { get; set; }
     }
 }

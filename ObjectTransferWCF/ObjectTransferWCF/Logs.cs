@@ -14,10 +14,10 @@ namespace ObjectTransferWCF
     
     public partial class Logs
     {
-        public int Id { get; set; }
-        public string Date { get; set; }
+        public int ID { get; set; }
+        public System.DateTime Date { get; set; }
+        public bool MessageType { get; set; }
         public string Message { get; set; }
-        public string Type { get; set; }
         public string StackTrace { get; set; }
     }
 }

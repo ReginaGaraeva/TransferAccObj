@@ -3,3 +3,6 @@ D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\ObjectTrans
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\obj\Debug\ObjectTransferWCF.csprojResolveAssemblyReference.cache
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\obj\Debug\ObjectTransferWCF.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\obj\Debug\ObjectTransferWCF.pdb
+D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\EntityFramework.dll
+D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\EntityFramework.xml
+D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\ru\EntityFramework.resources.dll

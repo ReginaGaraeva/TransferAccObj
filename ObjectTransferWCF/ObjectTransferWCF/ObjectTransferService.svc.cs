@@ -12,9 +12,20 @@ namespace ObjectTransferWCF
     // ПРИМЕЧАНИЕ. Чтобы запустить клиент проверки WCF для тестирования службы, выберите элементы Service1.svc или Service1.svc.cs в обозревателе решений и начните отладку.
     public class ObjectTransferService : IObjectTransferService
     {
+        public string CreateAccountingObject(string newAccountingObject)
+        {
+            return "";
+        }
 
+        public string UpdateAccountingObject(string inventaryNumber, string newAccountingObject)
+        {
+            return "";
+        }
 
-
+        public string DeleteAccountingObject(string inventaryNumber)
+        {
+            return "";
+        }
         //public string GetData(int value)
         //{
         //    return string.Format("You entered: {0}", value);

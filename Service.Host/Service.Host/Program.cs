@@ -4,6 +4,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using ObjectTransferWCF;
 
 namespace Service.Host
 {
@@ -12,8 +13,7 @@ namespace Service.Host
         static void Main(string[] args)
         {
             Type serviceType = typeof(ObjectTransferService);
-            Uri serviceUri = new Uri("http://localhost:8080/");
-            ServiceHost host = new ServiceHost(serviceType, serviceUri);
+            ServiceHost host = new ServiceHost(serviceType);
             host.Open();
         }
     }

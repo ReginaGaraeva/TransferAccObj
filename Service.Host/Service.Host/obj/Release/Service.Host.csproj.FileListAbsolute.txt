@@ -1,0 +1,10 @@
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\Service.Host.exe.config
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\Service.Host.exe
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\Service.Host.pdb
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\ObjectTransferWCF.dll
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\EntityFramework.dll
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\ObjectTransferWCF.pdb
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\EntityFramework.xml
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\ru\EntityFramework.resources.dll
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\obj\Release\Service.Host.exe
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\obj\Release\Service.Host.pdb

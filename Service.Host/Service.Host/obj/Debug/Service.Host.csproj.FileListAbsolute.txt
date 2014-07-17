@@ -1,1 +1,11 @@
 D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Debug\Service.Host.exe.config
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Debug\Service.Host.exe
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Debug\Service.Host.pdb
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Debug\ObjectTransferWCF.dll
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Debug\EntityFramework.dll
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Debug\ObjectTransferWCF.pdb
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Debug\EntityFramework.xml
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Debug\ru\EntityFramework.resources.dll
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\obj\Debug\Service.Host.csprojResolveAssemblyReference.cache
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\obj\Debug\Service.Host.exe
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\obj\Debug\Service.Host.pdb

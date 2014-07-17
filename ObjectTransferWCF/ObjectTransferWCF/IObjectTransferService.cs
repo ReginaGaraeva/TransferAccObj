@@ -13,6 +13,9 @@ namespace ObjectTransferWCF
     public interface IObjectTransferService
     {
         [OperationContract]
+        string SayHello(string name);
+
+        [OperationContract]
         string CreateAccountingObject(string newAccountingObject);
 
         [OperationContract]

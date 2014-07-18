@@ -8,3 +8,4 @@ D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\EntityFramewo
 D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\ru\EntityFramework.resources.dll
 D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\obj\Release\Service.Host.exe
 D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\obj\Release\Service.Host.pdb
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\obj\Release\Service.Host.csprojResolveAssemblyReference.cache

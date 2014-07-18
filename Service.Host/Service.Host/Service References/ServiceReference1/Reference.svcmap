@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="88bc6f5c-bb06-4e73-a1e2-df1af5fbe3d7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://10.53.21.224:13313/ObjectTransferService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ObjectTransferService.wsdl" MetadataType="Wsdl" ID="9bfd44f3-21e0-4f0f-9360-e10b544586c8" SourceId="1" SourceUrl="http://10.53.21.224:13313/ObjectTransferService.svc?wsdl" />
+    <MetadataFile FileName="ObjectTransferService1.wsdl" MetadataType="Wsdl" ID="af1d4a17-0c61-4504-90a8-70dc8777e171" SourceId="1" SourceUrl="http://10.53.21.224:13313/ObjectTransferService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ObjectTransferService.xsd" MetadataType="Schema" ID="78f382ec-b013-4138-869e-7b696bfd1858" SourceId="1" SourceUrl="http://10.53.21.224:13313/ObjectTransferService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ObjectTransferService1.xsd" MetadataType="Schema" ID="273b8595-5580-447b-8e72-a436d1f7ffd6" SourceId="1" SourceUrl="http://10.53.21.224:13313/ObjectTransferService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

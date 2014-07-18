@@ -9,7 +9,7 @@ using System.Text;
 namespace ObjectTransferWCF
 {
     // ПРИМЕЧАНИЕ. Команду "Переименовать" в меню "Рефакторинг" можно использовать для одновременного изменения имени интерфейса "IService1" в коде и файле конфигурации.
-    [ServiceContract]
+    [ServiceContract(Namespace = "http://objecttransferservice.ru/")]
     public interface IObjectTransferService
     {
         [OperationContract]

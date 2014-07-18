@@ -4,7 +4,6 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
-using ObjectTransferWCF;
 
 namespace Service.Host
 {
@@ -12,9 +11,17 @@ namespace Service.Host
     {
         static void Main(string[] args)
         {
-            Type serviceType = typeof(ObjectTransferService);
-            ServiceHost host = new ServiceHost(serviceType);
-            host.Open();
+            //var baseAddressHttp = new Uri("http://localhost:13313/ObjectTransferWCF.svc"); 
+            //Type serviceType = typeof(ObjectTransferService);
+            //ServiceHost host = new ServiceHost(serviceType, baseAddressHttp);
+            //host.Open();
+            using (var service = new Service.Host.ServiceReference1.ObjectTransferServiceClient())
+            {
+                service.ClientCredentials.UserName.UserName = @"wssdom\Администратор";
+                service.ClientCredentials.UserName.Password = @"P@ssw0rd";
+                Console.WriteLine( service.SayHello("Sear!"));
+            }
+            Console.ReadLine();
         }
     }
 }

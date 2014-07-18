@@ -63,6 +63,9 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="WSSC.V4.SYS.Samples">
+      <HintPath>..\..\WSSC.V4.SYS.Samples.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="ObjectTransferService.svc" />
@@ -149,6 +152,7 @@
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3937</DevelopmentServerPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:13313/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

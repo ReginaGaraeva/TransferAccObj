@@ -15,8 +15,6 @@ namespace ObjectTransferWCF
     {
         public string SayHello(string name)
         {
-            
-           DBSite
             return "Hello, " + name;
         }
 

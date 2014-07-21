@@ -30,7 +30,7 @@ namespace Service.Host.Services
         {
             string res = "";
             if (maxLength == 0) 
-                maxLength = rnd.Next(100)+1;
+                maxLength = rnd.Next(20)+1;
             if (ru)
                 for (int i = 0; i < maxLength; i++)
                 {
@@ -48,8 +48,8 @@ namespace Service.Host.Services
         {
             string res = GetWord(language == "ru");
             if (countWords == 0)
-                countWords = rnd.Next(100);
-            for (int i = 0; i < countWords; i++)
+                countWords = rnd.Next(15);
+            for (int i = 0; i < countWords - 1; i++)
             {
                 res += ' ' + GetWord(language == "ru");
             }
@@ -63,12 +63,12 @@ namespace Service.Host.Services
 
         public string GenerateOwner()
         {
-            return GetString("ru", 3) + ' ' + GetDate();
+            return GetString("en", 3) + ' ' + GetDate();
         }
 
         public string GenerateDescription()
         {
-            return GetString("ru");
+            return GetString("en");
         }
 
         public string GenerateInventaryNumber(int length)

@@ -18,7 +18,7 @@ namespace Service.Host
                 service.ClientCredentials.UserName.UserName = @"wssdom\Администратор";
                 service.ClientCredentials.UserName.Password = @"P@ssw0rd";
                 Generator generator = new Generator();
-                Console.WriteLine( service.SayHello(generator.GenerateOwner()));
+                Console.WriteLine(service.SayHello(generator.GenerateOwner()));
             }
             Console.ReadLine();
         }

@@ -51,8 +51,9 @@ namespace Service.Host.Services
             while (true)
                 if ((threadsWrapper.Count() < maxServicesCount) && (rnd.Next() < 0.2))
                 {
+                    threadsWrapper[threadsWrapper.Count() - 1] = new ThreadModel();
+                    threadsWrapper[threadsWrapper.Count() - 1].thread = new Thread(TestItem);
                     threadsWrapper[threadsWrapper.Count() - 1].thread.Name = (threadsWrapper.Count() - 1).ToString();
-                    threadsWrapper[threadsWrapper.Count() - 1].thread.Start();
                 }
         }
 

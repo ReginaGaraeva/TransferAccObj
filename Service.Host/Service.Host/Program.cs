@@ -15,8 +15,8 @@ namespace Service.Host
         {
             using (var service = new Service.Host.ServiceReference1.ObjectTransferServiceClient())
             {
-                service.ClientCredentials.UserName.UserName = @"wssdom\Администратор";
-                service.ClientCredentials.UserName.Password = @"P@ssw0rd";
+                //service.ClientCredentials.UserName.UserName = @"wssdom\Администратор";
+                //service.ClientCredentials.UserName.Password = @"P@ssw0rd";
                 Generator generator = new Generator();
                 Console.WriteLine(service.SayHello(generator.GenerateOwner()));
             }

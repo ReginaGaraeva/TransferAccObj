@@ -5,7 +5,9 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-using WSSC;
+using WSSC.V4.SYS.DBFramework;
+using WSSC.V4.DMS.Workflow;
+
 
 namespace ObjectTransferWCF
 {
@@ -16,6 +18,15 @@ namespace ObjectTransferWCF
         public string SayHello(string name)
         {
             return "Hello, " + name;
+        }
+
+        public string CreateList(string name)
+        {
+            DBSite dbSite = new DBSite("http://wssdocs");
+            DBWeb dbWeb = dbSite.GetWeb("/dms/contracts");
+            DBList dbList = dbWeb.GetList("Contracts");
+            dbList.CreateItem();
+            return "success";
         }
 
         private bool CheckDbConnect()

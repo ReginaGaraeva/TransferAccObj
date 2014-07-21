@@ -6,7 +6,6 @@ D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\ru\EntityFr
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\obj\Release\ObjectTransferWCF.csprojResolveAssemblyReference.cache
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\obj\Release\ObjectTransferWCF.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\obj\Release\ObjectTransferWCF.pdb
-D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.DBFramework.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.DMS.Publishing.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.Lib.Base.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.Lib.MailSender.dll
@@ -23,7 +22,6 @@ D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.DMS.Fields.ParentDocumentFiles.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.DMS.Fields.Commissions.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.DMS.Controls.dll
-D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.DMS.Workflow.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.Fields.Integer.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.Lib.Utilities.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.Fields.MultiSourceLookup.dll

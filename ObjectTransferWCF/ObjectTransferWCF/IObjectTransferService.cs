@@ -17,6 +17,9 @@ namespace ObjectTransferWCF
         string SayHello(string name);
 
         [OperationContract]
+        string CreateList(string name);
+
+        [OperationContract]
         string CreateAccountingObject(string newAccountingObject);
 
         [OperationContract]

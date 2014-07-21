@@ -63,6 +63,14 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="WSSC.V4.DMS.Workflow, Version=4.0.0.0, Culture=neutral, PublicKeyToken=9f4da00116c38ec5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\WSSC.V4.DMS.Workflow.dll</HintPath>
+    </Reference>
+    <Reference Include="WSSC.V4.SYS.DBFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=9f4da00116c38ec5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\WSSC.V4.SYS.DBFramework.dll</HintPath>
+    </Reference>
     <Reference Include="WSSC.V4.SYS.Samples">
       <HintPath>..\..\WSSC.V4.SYS.Samples.dll</HintPath>
     </Reference>
@@ -151,7 +159,6 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>3937</DevelopmentServerPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:13313/</IISUrl>

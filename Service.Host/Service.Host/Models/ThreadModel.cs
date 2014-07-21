@@ -9,7 +9,7 @@ using System.Threading;
 
 namespace Service.Host.Models
 {
-    class ThreadModel
+    public class ThreadModel
     {
         public ObjectTransferServiceClient service;
         public Thread thread;

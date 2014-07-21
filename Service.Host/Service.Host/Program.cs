@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Service.Host;
 using Service.Host.Services;
+using Service.Host.Models;
 
 namespace Service.Host
 {
@@ -18,8 +19,9 @@ namespace Service.Host
                 //service.ClientCredentials.UserName.UserName = @"wssdom\Администратор";
                 //service.ClientCredentials.UserName.Password = @"P@ssw0rd";
                 Generator generator = new Generator();
-                Console.WriteLine(service.CreateList(generator.GenerateOwner()));
+                Console.WriteLine(service.SayHello(generator.GenerateOwner()));
             }
+
             Console.ReadLine();
         }
     }

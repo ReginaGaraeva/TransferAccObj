@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2a700a8a-fd37-49e1-8ce8-67906499c927" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="700b6dec-1b9b-4d86-b0b3-162cfd92baf0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:13313/ObjectTransferService.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ObjectTransferService.xsd" MetadataType="Schema" ID="d3cdd7d1-040c-488f-9eff-987e0592fa39" SourceId="1" SourceUrl="http://localhost:13313/ObjectTransferService.svc?xsd=xsd1" />
-    <MetadataFile FileName="ObjectTransferService1.xsd" MetadataType="Schema" ID="c1add04b-9ff2-4223-b95d-c2c18a417130" SourceId="1" SourceUrl="http://localhost:13313/ObjectTransferService.svc?xsd=xsd0" />
-    <MetadataFile FileName="ObjectTransferService.wsdl" MetadataType="Wsdl" ID="f4356ff0-0b62-4f06-963e-85c446ef07e1" SourceId="1" SourceUrl="http://localhost:13313/ObjectTransferService.svc?wsdl" />
-    <MetadataFile FileName="ObjectTransferService1.wsdl" MetadataType="Wsdl" ID="a936f685-0b51-419d-b4e9-1c4ed2df1edf" SourceId="1" SourceUrl="http://localhost:13313/ObjectTransferService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ObjectTransferService.xsd" MetadataType="Schema" ID="faae9d5c-9bd5-4db7-b537-cd078c478781" SourceId="1" SourceUrl="http://localhost:13313/ObjectTransferService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ObjectTransferService1.xsd" MetadataType="Schema" ID="7718aefb-4889-4230-af53-b746965420eb" SourceId="1" SourceUrl="http://localhost:13313/ObjectTransferService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ObjectTransferService.wsdl" MetadataType="Wsdl" ID="c495d1e4-4b51-4f95-87ef-8f5729694301" SourceId="1" SourceUrl="http://localhost:13313/ObjectTransferService.svc?wsdl" />
+    <MetadataFile FileName="ObjectTransferService1.wsdl" MetadataType="Wsdl" ID="51e8a8d4-2f74-4cb1-a80d-801697926556" SourceId="1" SourceUrl="http://localhost:13313/ObjectTransferService.svc?wsdl=wsdl0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

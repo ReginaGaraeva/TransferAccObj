@@ -12,8 +12,8 @@ namespace Service.Host.Services
 {
     class Test
     {
-        private Generator generator;
-        List<ThreadModel> threadsWrapper;
+        Generator generator;
+        List<ThreadModel> threadsWrapper = new List<ThreadModel>();
         int operationsCount;
         int maxServicesCount;
 

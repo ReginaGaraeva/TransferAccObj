@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Этот файл используется в процессе публикации или упаковки вашего веб-проекта. Вы можете настроить поведение процесса,
+изменив этот файл MSBuild. Дополнительные сведения см. по адресу http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Debug</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Test.dll">
+      <publishTime>07/22/2014 14:11:36</publishTime>
+    </File>
+    <File Include="bin/Test.pdb">
+      <publishTime>07/22/2014 14:11:36</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.DMS.ConditionalAccess.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.DMS.Controls.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.DMS.EDMS.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.DMS.Fields.Commissions.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.DMS.Fields.FileLink.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.DMS.Fields.Notification.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.DMS.Fields.ParentDocumentFiles.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.DMS.Publishing.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.DMS.Reports.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.DMS.Workflow.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Cryptography.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Cryptography.Lib.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Cryptography.Microsoft.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.DBFramework.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Fields.Boolean.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Fields.Choice.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Fields.Date.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Fields.Files.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Fields.Integer.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Fields.Lookup.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Fields.MarkupField.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Fields.MultiLineText.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Fields.MultiSourceLookup.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Fields.Number.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Fields.TableSection.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Fields.Text.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Lib.Aspose.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Lib.Base.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Lib.DBObjects.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Lib.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Lib.Logging.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Lib.MailSender.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Lib.SharePoint.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Lib.SPXObjects.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Lib.Utilities.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.UI.Controls.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="Service1.svc">
+      <publishTime>07/22/2014 13:59:57</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>07/22/2014 14:11:36</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

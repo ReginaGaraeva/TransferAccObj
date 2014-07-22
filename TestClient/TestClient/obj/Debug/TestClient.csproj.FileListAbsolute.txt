@@ -1,0 +1,5 @@
+D:\Own\GitHub\TransferAccObj\TestClient\TestClient\bin\Debug\TestClient.exe.config
+D:\Own\GitHub\TransferAccObj\TestClient\TestClient\bin\Debug\TestClient.exe
+D:\Own\GitHub\TransferAccObj\TestClient\TestClient\bin\Debug\TestClient.pdb
+D:\Own\GitHub\TransferAccObj\TestClient\TestClient\obj\Debug\TestClient.exe
+D:\Own\GitHub\TransferAccObj\TestClient\TestClient\obj\Debug\TestClient.pdb

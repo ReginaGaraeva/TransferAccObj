@@ -29,11 +29,11 @@ namespace Service.Host.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/CreateAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/CreateAccountingObjectResp" +
             "onse")]
-        string CreateAccountingObject(string newAccountingObject);
+        string CreateAccountingObject(string inventaryNumber, string description, string postingDate, string deprecationDate, string owner);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/CreateAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/CreateAccountingObjectResp" +
             "onse")]
-        System.Threading.Tasks.Task<string> CreateAccountingObjectAsync(string newAccountingObject);
+        System.Threading.Tasks.Task<string> CreateAccountingObjectAsync(string inventaryNumber, string description, string postingDate, string deprecationDate, string owner);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/UpdateAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/UpdateAccountingObjectResp" +
             "onse")]
@@ -95,12 +95,12 @@ namespace Service.Host.ServiceReference1 {
             return base.Channel.CreateListAsync(name);
         }
         
-        public string CreateAccountingObject(string newAccountingObject) {
-            return base.Channel.CreateAccountingObject(newAccountingObject);
+        public string CreateAccountingObject(string inventaryNumber, string description, string postingDate, string deprecationDate, string owner) {
+            return base.Channel.CreateAccountingObject(inventaryNumber, description, postingDate, deprecationDate, owner);
         }
         
-        public System.Threading.Tasks.Task<string> CreateAccountingObjectAsync(string newAccountingObject) {
-            return base.Channel.CreateAccountingObjectAsync(newAccountingObject);
+        public System.Threading.Tasks.Task<string> CreateAccountingObjectAsync(string inventaryNumber, string description, string postingDate, string deprecationDate, string owner) {
+            return base.Channel.CreateAccountingObjectAsync(inventaryNumber, description, postingDate, deprecationDate, owner);
         }
         
         public string UpdateAccountingObject(string inventaryNumber, string accountingObjectData) {

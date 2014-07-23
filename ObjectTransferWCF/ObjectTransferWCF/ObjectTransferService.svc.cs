@@ -7,6 +7,7 @@ using System.ServiceModel.Web;
 using System.Text;
 using WSSC.V4.SYS.DBFramework;
 using WSSC.V4.DMS.Workflow;
+using ObjectTransferWCF.Services;
 
 
 namespace ObjectTransferWCF
@@ -15,6 +16,22 @@ namespace ObjectTransferWCF
     // ПРИМЕЧАНИЕ. Чтобы запустить клиент проверки WCF для тестирования службы, выберите элементы Service1.svc или Service1.svc.cs в обозревателе решений и начните отладку.
     public class ObjectTransferService : IObjectTransferService
     {
+        AccountingObjectsList objectList;
+        LogService logService;
+
+        public ObjectTransferService()
+        {
+            try
+            {
+                objectList = new AccountingObjectsList();
+            }
+            catch
+            {
+                throw new Exception("Не удалось соединиться с WSS Docs.");
+            }
+            logService = new LogService();
+        }
+
         public string SayHello(string name)
         {
             return "Hello, " + name;
@@ -22,7 +39,8 @@ namespace ObjectTransferWCF
 
         public string CreateList(string name)
         {
-            DBSite dbSite = new DBSite("http://wsstest/");
+            
+            //DBSite dbSite = new DBSite("http://wsstest/");
             //DBWeb dbWeb = dbSite.GetWeb("/dms/contracts");
             //DBList dbList = dbWeb.GetList("Contracts");
             //dbList.CreateItem();
@@ -46,9 +64,36 @@ namespace ObjectTransferWCF
         }
 
 
-        public string CreateAccountingObject(string newAccountingObject)
+        public string CreateAccountingObject(string inventaryNumber, string description, string postingDate,
+            string deprecationDate, string owner)
         {
-            return "";
+            try
+            {
+                objectList.Add(new Models.AccountingObjectModel()
+                {
+                    InventaryNumber = inventaryNumber,
+                    Description = description,
+                    PostingDate = Convert.ToDateTime(postingDate),
+                    DeprecationDate = Convert.ToDateTime(deprecationDate),
+                    Owner = owner,
+                    Deleted = false
+                });
+                try
+                {
+                    logService.WriteInfo(String.Format("Добавлен объект учета\nИнвентарный номер: {0}\nОписание: {1}\nДата оприходования: {2}\nДата амортизации: {3}\nМОЛ: {4}",
+                        inventaryNumber, description, postingDate, deprecationDate, owner));
+                }
+                catch
+                {
+                    return "Не удалось создать объект учета. И лог тоже не записался(";
+                }
+                return "Объект учета успешно создан.";
+            }
+            catch
+            {
+                return "Не удалось создать объект учета.";
+            }
+            
         }
 
         public string UpdateAccountingObject(string inventaryNumber, string newAccountingObject)

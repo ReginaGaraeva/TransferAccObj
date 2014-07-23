@@ -25,24 +25,24 @@ namespace Service.Host.Services
 
         public void TestItem()
         {
-            Random rnd = new Random();
-            int num = Convert.ToInt32(Thread.CurrentThread.Name);
-            threadsWrapper[num].service = new ObjectTransferServiceClient();
-            OpenService(num);
-            for (int i = 0; i < operationsCount; i++)
-                switch (rnd.Next(3))
-                {
-                    case 0:
-                        threadsWrapper[num].service.CreateAccountingObject("");
-                        break;
-                    case 1:
-                        threadsWrapper[num].service.UpdateAccountingObject("", "");
-                        break;
-                    case 2:
-                        threadsWrapper[num].service.DeleteAccountingObject("");
-                        break;
-                }
-            CloseService(num);
+            //Random rnd = new Random();
+            //int num = Convert.ToInt32(Thread.CurrentThread.Name);
+            //threadsWrapper[num].service = new ObjectTransferServiceClient();
+            //OpenService(num);
+            //for (int i = 0; i < operationsCount; i++)
+            //    switch (rnd.Next(3))
+            //    {
+            //        case 0:
+            //            threadsWrapper[num].service.CreateAccountingObject("");
+            //            break;
+            //        case 1:
+            //            threadsWrapper[num].service.UpdateAccountingObject("", "");
+            //            break;
+            //        case 2:
+            //            threadsWrapper[num].service.DeleteAccountingObject("");
+            //            break;
+            //    }
+            //CloseService(num);
         }
 
         public void Run()

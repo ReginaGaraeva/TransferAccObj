@@ -31,7 +31,11 @@
   <xs:element name="CreateAccountingObject">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="newAccountingObject" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inventaryNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="postingDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deprecationDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="owner" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

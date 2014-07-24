@@ -46,3 +46,7 @@ D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\x64\Release\ru\Entity
 D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\obj\x64\Release\Service.Host.csprojResolveAssemblyReference.cache
 D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\obj\x64\Release\Service.Host.exe
 D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\obj\x64\Release\Service.Host.pdb
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\x64\Release\Microsoft.SharePoint.Client.dll
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\x64\Release\Microsoft.SharePoint.Client.Runtime.dll
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\x64\Release\Microsoft.SharePoint.dll
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\x64\Release\Microsoft.SharePoint.Security.dll

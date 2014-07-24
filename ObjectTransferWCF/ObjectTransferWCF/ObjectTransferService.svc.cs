@@ -21,15 +21,15 @@ namespace ObjectTransferWCF
 
         public ObjectTransferService()
         {
-            try
-            {
-                objectList = new AccountingObjectsList();
-            }
-            catch
-            {
-                throw new Exception("Не удалось соединиться с WSS Docs.");
-            }
-            logService = new LogService();
+            //try
+            //{
+            //    objectList = new AccountingObjectsList();
+            //}
+            //catch
+            //{
+            //    throw new Exception("Не удалось соединиться с WSS Docs.");
+            //}
+            //logService = new LogService();
         }
 
         public string SayHello(string name)
@@ -39,8 +39,7 @@ namespace ObjectTransferWCF
 
         public string CreateList(string name)
         {
-            
-            //DBSite dbSite = new DBSite("http://wsstest/");
+            DBSite dbSite = new DBSite("http://wsstest/");
             //DBWeb dbWeb = dbSite.GetWeb("/dms/contracts");
             //DBList dbList = dbWeb.GetList("Contracts");
             //dbList.CreateItem();

@@ -52,6 +52,22 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.SharePoint">
+      <HintPath>..\..\ObjectTransferWCF\ObjectTransferWCF\bin\Microsoft.SharePoint.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client">
+      <HintPath>..\..\ObjectTransferWCF\ObjectTransferWCF\bin\Microsoft.SharePoint.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime">
+      <HintPath>..\..\ObjectTransferWCF\ObjectTransferWCF\bin\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Library">
+      <HintPath>..\..\ObjectTransferWCF\ObjectTransferWCF\bin\Microsoft.SharePoint.Library.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Security">
+      <HintPath>..\..\ObjectTransferWCF\ObjectTransferWCF\bin\Microsoft.SharePoint.Security.dll</HintPath>
+    </Reference>
     <Reference Include="ObjectTransferWCF">
       <HintPath>..\..\ObjectTransferWCF\ObjectTransferWCF\bin\ObjectTransferWCF.dll</HintPath>
     </Reference>

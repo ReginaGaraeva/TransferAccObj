@@ -21,7 +21,6 @@ namespace Service.Host
                 Generator generator = new Generator();
                 Console.WriteLine(service.CreateList(generator.GenerateOwner()));
             }
-
             Console.ReadLine();
         }
     }

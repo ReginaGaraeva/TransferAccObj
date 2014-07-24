@@ -8,16 +8,76 @@ using System.Text;
 using WSSC.V4.SYS.DBFramework;
 using WSSC.V4.DMS.Workflow;
 using ObjectTransferWCF.Services;
-
+using System.ServiceModel.Activation;
+using ObjectTransferWCF.Models;
 
 namespace ObjectTransferWCF
 {
     // ПРИМЕЧАНИЕ. Команду "Переименовать" в меню "Рефакторинг" можно использовать для одновременного изменения имени класса "Service1" в коде, SVC-файле и файле конфигурации.
     // ПРИМЕЧАНИЕ. Чтобы запустить клиент проверки WCF для тестирования службы, выберите элементы Service1.svc или Service1.svc.cs в обозревателе решений и начните отладку.
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class ObjectTransferService : IObjectTransferService
     {
         AccountingObjectsList objectList;
         LogService logService;
+        Dictionary<int, ResponseModel> responseList = new Dictionary<int, ResponseModel>();
+
+        #region ResponseList
+        private void InitResponseList()
+        {
+            responseList.Add(1, new ResponseModel()
+            {
+                Message = "Accounting object successfully created.",
+                isError = false
+            });
+            responseList.Add(2, new ResponseModel()
+            {
+                Message = "Fail in creating accounting object.",
+                isError = true
+            });
+            responseList.Add(3, new ResponseModel()
+            {
+                Message = "Error with WSS.",
+                isError = true
+            });
+            responseList.Add(4, new ResponseModel()
+            {
+                Message = "Accounting object already exists.",
+                isError = false
+            });
+            responseList.Add(5, new ResponseModel()
+            {
+                Message = "Accounting object successfully updated.",
+                isError = false
+            });
+            responseList.Add(6, new ResponseModel()
+            {
+                Message = "Fail in updating accounting object.",
+                isError = true
+            });
+            responseList.Add(7, new ResponseModel()
+            {
+                Message = "Accounting object does not exist. Accounting object sucsessfully created.",
+                isError = false
+            });
+            responseList.Add(8, new ResponseModel()
+            {
+                Message = "Accounting object does not exist. Accounting object was not create.",
+                isError = true
+            });
+            responseList.Add(9, new ResponseModel()
+            {
+                Message = "Accounting object successfully deleted.",
+                isError = false
+            });
+            responseList.Add(10, new ResponseModel()
+            {
+                Message = "Fail in deleting accounting object.",
+                isError = true
+            });
+
+        }
+        #endregion
 
         public ObjectTransferService()
         {
@@ -30,6 +90,7 @@ namespace ObjectTransferWCF
             //    throw new Exception("Не удалось соединиться с WSS Docs.");
             //}
             //logService = new LogService();
+            //InitResponseList();
         }
 
         public string SayHello(string name)

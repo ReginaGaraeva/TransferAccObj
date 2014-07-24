@@ -26,7 +26,10 @@
       <publishTime>07/22/2014 11:07:30</publishTime>
     </File>
     <File Include="bin/ObjectTransferWCF.dll">
-      <publishTime>07/24/2014 11:27:33</publishTime>
+      <publishTime>07/24/2014 12:26:38</publishTime>
+    </File>
+    <File Include="bin/ObjectTransferWCF.pdb">
+      <publishTime>07/24/2014 12:15:05</publishTime>
     </File>
     <File Include="bin/ru/EntityFramework.resources.dll">
       <publishTime>07/22/2014 11:07:31</publishTime>
@@ -164,7 +167,7 @@
       <publishTime>07/22/2014 11:07:31</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/24/2014 11:27:34</publishTime>
+      <publishTime>07/24/2014 12:26:38</publishTime>
     </File>
   </ItemGroup>
 </Project>

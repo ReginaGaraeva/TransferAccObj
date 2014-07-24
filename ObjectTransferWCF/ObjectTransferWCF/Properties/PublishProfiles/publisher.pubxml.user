@@ -6,7 +6,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
-    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <LastUsedPlatform>x64</LastUsedPlatform>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
   </PropertyGroup>
   <ItemGroup>
@@ -26,7 +26,7 @@
       <publishTime>07/22/2014 11:07:30</publishTime>
     </File>
     <File Include="bin/ObjectTransferWCF.dll">
-      <publishTime>07/24/2014 10:54:45</publishTime>
+      <publishTime>07/24/2014 11:27:33</publishTime>
     </File>
     <File Include="bin/ru/EntityFramework.resources.dll">
       <publishTime>07/22/2014 11:07:31</publishTime>
@@ -130,6 +130,12 @@
     <File Include="bin/WSSC.V4.SYS.Lib.SharePoint.dll">
       <publishTime>07/22/2014 11:07:31</publishTime>
     </File>
+    <File Include="bin/WSSC.V4.SYS.Lib.SharePoint.v2007.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
+    <File Include="bin/WSSC.V4.SYS.Lib.SharePoint.v2010.dll">
+      <publishTime>07/22/2014 11:07:31</publishTime>
+    </File>
     <File Include="bin/WSSC.V4.SYS.Lib.SPXObjects.dll">
       <publishTime>07/22/2014 11:07:31</publishTime>
     </File>
@@ -158,7 +164,7 @@
       <publishTime>07/22/2014 11:07:31</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/24/2014 10:54:45</publishTime>
+      <publishTime>07/24/2014 11:27:34</publishTime>
     </File>
   </ItemGroup>
 </Project>

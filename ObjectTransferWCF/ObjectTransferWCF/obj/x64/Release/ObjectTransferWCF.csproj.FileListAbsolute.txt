@@ -8,7 +8,6 @@ D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.DMS
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.Lib.DBObjects.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.UI.Controls.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.Lib.SPXObjects.dll
-D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.Lib.SharePoint.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.Fields.TableSection.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.Fields.Files.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.Cryptography.dll

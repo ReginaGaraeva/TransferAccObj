@@ -50,3 +50,5 @@ D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\x64\Release\Microsoft
 D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\x64\Release\Microsoft.SharePoint.Client.Runtime.dll
 D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\x64\Release\Microsoft.SharePoint.dll
 D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\x64\Release\Microsoft.SharePoint.Security.dll
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\x64\Release\WSSC.V4.SYS.Lib.SharePoint.v2007.dll
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\x64\Release\WSSC.V4.SYS.Lib.SharePoint.v2010.dll

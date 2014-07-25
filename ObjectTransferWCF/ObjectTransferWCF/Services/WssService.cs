@@ -43,6 +43,7 @@ namespace ObjectTransferWCF.Services
         {
             if (!Exists(accObject))
             {
+                Console.WriteLine("Такой объект учета еще не существует");
                 //Название настройки процессов, по которой создаем документ
                 string settingName = "requests";
                 //Создаем документ по процессу

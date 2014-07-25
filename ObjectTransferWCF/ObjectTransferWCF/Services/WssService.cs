@@ -8,21 +8,25 @@ using ObjectTransferWCF.Models;
 
 namespace ObjectTransferWCF.Services
 {
-    public class AccountingObjectsList
+    public class WSSList
     {
         private DBList dbList;
         private DBUser dbUser;
         private DMSContext dmsContext;
         private DMSLogic dmsLogic;
 
-        public AccountingObjectsList()
-        {
+        public WSSList()
+        {           
             DBSite dbSite = new DBSite("http://wsstest");
+            Console.WriteLine("Соединился с wsstest");
             DBWeb dbWeb = dbSite.GetWeb("/dms/requests");
+            Console.WriteLine("Загрузил страницу /dms/requests");
             dbList = dbWeb.GetList("AccountingObjects");
-            dbUser = dbSite.GetUser(@"wss\wss1");
-            dmsContext = new DMSContext(dbWeb, dbUser);
+            Console.WriteLine("Загрузил список объектов учета");
+            dmsContext = new DMSContext(dbWeb);
+            Console.WriteLine("Создал dmsContext");
             dmsLogic = new DMSLogic();
+            Console.WriteLine("Создал dmsLogic");
         }
 
         public bool Exists(AccountingObjectModel accObject)

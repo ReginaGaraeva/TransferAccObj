@@ -88,6 +88,14 @@
     <Reference Include="WSSC.V4.DMS.Import">
       <HintPath>..\..\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.DMS.Import.dll</HintPath>
     </Reference>
+    <Reference Include="WSSC.V4.DMS.Workflow, Version=4.0.0.0, Culture=neutral, PublicKeyToken=9f4da00116c38ec5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.DMS.Workflow.dll</HintPath>
+    </Reference>
+    <Reference Include="WSSC.V4.SYS.DBFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=9f4da00116c38ec5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.DBFramework.dll</HintPath>
+    </Reference>
     <Reference Include="WSSC.V4.SYS.Lib.SharePoint, Version=4.0.0.0, Culture=neutral, PublicKeyToken=9f4da00116c38ec5, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.Lib.SharePoint.dll</HintPath>

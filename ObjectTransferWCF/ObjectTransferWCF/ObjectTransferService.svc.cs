@@ -18,7 +18,7 @@ namespace ObjectTransferWCF
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class ObjectTransferService : IObjectTransferService
     {
-        AccountingObjectsList objectList;
+        WSSList objectList;
         LogService logService;
         Dictionary<int, ResponseModel> responseList = new Dictionary<int, ResponseModel>();
 
@@ -83,11 +83,11 @@ namespace ObjectTransferWCF
         {
             try
             {
-                objectList = new AccountingObjectsList();
+                objectList = new WSSList();
             }
-            catch
+            catch(Exception ex)
             {
-                throw new Exception("Не удалось соединиться с WSS Docs.");
+                throw new Exception("Не удалось создать список объектов учета. "+ex.Message);
             }
             logService = new LogService();
             InitResponseList();

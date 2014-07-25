@@ -81,16 +81,16 @@ namespace ObjectTransferWCF
 
         public ObjectTransferService()
         {
-            //try
-            //{
-            //    objectList = new AccountingObjectsList();
-            //}
-            //catch
-            //{
-            //    throw new Exception("Не удалось соединиться с WSS Docs.");
-            //}
-            //logService = new LogService();
-            //InitResponseList();
+            try
+            {
+                objectList = new AccountingObjectsList();
+            }
+            catch
+            {
+                throw new Exception("Не удалось соединиться с WSS Docs.");
+            }
+            logService = new LogService();
+            InitResponseList();
         }
 
         public string SayHello(string name)

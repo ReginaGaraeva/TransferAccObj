@@ -29,11 +29,11 @@ namespace ObjectTransferWCF.Services
             Console.WriteLine("Создал dmsLogic");
         }
 
-        public int Exists(AccountingObjectModel accObject)
+        public int Exists(string InventaryNumber)
         {
             for (int i = 0; i < dbList.ItemsCount; i++)
             {
-                if (dbList.Items[i].GetValue("InventaryNumber").ToString() == accObject.InventaryNumber)
+                if (dbList.Items[i].GetValue("InventaryNumber").ToString() == InventaryNumber)
                     return i;
             }
             return -1;
@@ -41,7 +41,7 @@ namespace ObjectTransferWCF.Services
 
         public int Add(AccountingObjectModel accObject)
         {
-            if (Exists(accObject) == -1)
+            if (Exists(accObject.InventaryNumber) == -1)
             {
                 Console.WriteLine("Такой объект учета еще не существует");
                 //Название настройки процессов, по которой создаем документ
@@ -65,22 +65,40 @@ namespace ObjectTransferWCF.Services
                 return 0;
         }
 
-        public int Update(string inventaryNumber, AccountingObjectModel accObject)
+        public int Update(string OldInventaryNumber, AccountingObjectModel accObject)
         {
-            int i = Exists(accObject);
+            int i = Exists(OldInventaryNumber);
             if (i == -1)
             {
-                Console.WriteLine("Такого объекта для обновления нет");
+                Console.WriteLine("Такого объекта для обновления нет, начинаем создание.");
+                Add(accObject);
             }
             else
             {
+                dbList.Items[i].SetValue("InventaryNumber", accObject.InventaryNumber);
+                dbList.Items[i].SetValue("Description", accObject.Description);
+                dbList.Items[i].SetValue("PostingDate", accObject.PostingDate);
+                dbList.Items[i].SetValue("DeprecationDate", accObject.DeprecationDate);
+                dbList.Items[i].SetValue("Owner", accObject.Owner);
+                dbList.Items[i].SetValue("IsDeleted", accObject.Deleted);
+                Console.WriteLine("Обновление прошло успешно?");
+                return 5;
             }
             return 0;
         }
 
-        public int Delete(string inventaryNumber)
+        public int Delete(string InventaryNumber)
         {
-            return 0;
+            int i = Exists(InventaryNumber);
+            if (i == -1)
+            {
+                Console.WriteLine("Такого объекта для удаления нет");
+                return 11;
+            }
+            else
+                dbList.Items[i].Delete();
+            Console.WriteLine("Удалили объект учета");
+            return 9;
         }
 
     }

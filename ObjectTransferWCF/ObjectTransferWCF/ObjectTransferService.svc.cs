@@ -75,6 +75,11 @@ namespace ObjectTransferWCF
                 Message = "Fail in deleting accounting object.",
                 isError = true
             });
+             responseList.Add(11, new ResponseModel()
+            {
+                Message = "Fail in updating oject. Object not found.",
+                isError = true
+            });
 
         }
         #endregion
@@ -156,10 +161,20 @@ namespace ObjectTransferWCF
             
         }
 
-        public string UpdateAccountingObject(string inventaryNumber, string description, string postingDate,
+        public string UpdateAccountingObject(string oldInventaryNumber, string inventaryNumber, string description, string postingDate,
             string deprecationDate, string owner)
         {
-            foreach(var acc_obj in objectList.
+            try
+            {
+                objectList.Update(oldInventaryNumber, new Models.AccountingObjectModel()
+                {
+                    InventaryNumber = inventaryNumber,
+                    Description = description,
+                    PostingDate = Convert.ToDateTime(postingDate),
+                    DeprecationDate = Convert.ToDateTime(deprecationDate),
+                    Owner = owner,
+                    Deleted = false
+                });
                 try
                 {
                     logService.WriteInfo(String.Format("Обновлен объект учета\nИнвентарный номер: {0}\nОписание: {1}\nДата оприходования: {2}\nДата амортизации: {3}\nМОЛ: {4}",
@@ -167,19 +182,30 @@ namespace ObjectTransferWCF
                 }
                 catch
                 {
-                    return "Не удалось обновить объект учета. И лог тоже не записался(";
+                    return "Не удалось обновить объект учета";
                 }
-                return "Объект учета успешно обновлен.";
+                return "Объект учета успешно создан.";
             }
             catch
             {
-                return "Не удалось обновить объект учета.";
+                return "Не удалось создать объект учета.";
             }
-            
         }
 
         public string DeleteAccountingObject(string inventaryNumber)
         {
+            try
+            {
+                objectList.Delete(inventaryNumber);
+            
+                try
+                {
+                    logService.WriteInfo(String.Format("Удален  объект учета\nИнвентарный номер: {0}", inventaryNumber));
+                }
+                catch { }
+            }
+            catch{ }
+            
             return "";
         }
         //public string GetData(int value)

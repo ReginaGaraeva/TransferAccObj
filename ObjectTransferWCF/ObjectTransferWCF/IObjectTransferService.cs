@@ -24,7 +24,8 @@ namespace ObjectTransferWCF
             string deprecationDate, string owner);
 
         [OperationContract]
-        string UpdateAccountingObject(string inventaryNumber, string accountingObjectData);
+        string UpdateAccountingObject(string inventaryNumber, string description, string postingDate,
+            string deprecationDate, string owner);
 
         [OperationContract]
         string DeleteAccountingObject(string inventaryNumber);

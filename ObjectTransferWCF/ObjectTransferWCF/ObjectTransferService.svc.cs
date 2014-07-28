@@ -156,9 +156,26 @@ namespace ObjectTransferWCF
             
         }
 
-        public string UpdateAccountingObject(string inventaryNumber, string newAccountingObject)
+        public string UpdateAccountingObject(string inventaryNumber, string description, string postingDate,
+            string deprecationDate, string owner)
         {
-            return "";
+            foreach(var acc_obj in objectList.
+                try
+                {
+                    logService.WriteInfo(String.Format("Обновлен объект учета\nИнвентарный номер: {0}\nОписание: {1}\nДата оприходования: {2}\nДата амортизации: {3}\nМОЛ: {4}",
+                        inventaryNumber, description, postingDate, deprecationDate, owner));
+                }
+                catch
+                {
+                    return "Не удалось обновить объект учета. И лог тоже не записался(";
+                }
+                return "Объект учета успешно обновлен.";
+            }
+            catch
+            {
+                return "Не удалось обновить объект учета.";
+            }
+            
         }
 
         public string DeleteAccountingObject(string inventaryNumber)

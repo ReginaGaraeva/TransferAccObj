@@ -29,14 +29,14 @@ namespace ObjectTransferWCF.Services
             Console.WriteLine("Создал dmsLogic");
         }
 
-        public bool Exists(AccountingObjectModel accObject)
+        public int Exists(AccountingObjectModel accObject)
         {
-            foreach (var l in dbList.Items)
+            for (int i = 0; i < dbList.ItemsCount; i++)
             {
-                if (l.GetValue("InventaryNumber").ToString() == accObject.InventaryNumber)
-                    return true;
+                if (dbList.Items[i].GetValue("InventaryNumber").ToString() == accObject.InventaryNumber)
+                    return i;
             }
-            return false;
+            return -1;
         }
 
         public int Add(AccountingObjectModel accObject)

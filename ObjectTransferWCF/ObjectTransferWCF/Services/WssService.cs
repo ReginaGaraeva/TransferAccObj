@@ -41,7 +41,7 @@ namespace ObjectTransferWCF.Services
 
         public int Add(AccountingObjectModel accObject)
         {
-            if (!Exists(accObject))
+            if (Exists(accObject) == -1)
             {
                 Console.WriteLine("Такой объект учета еще не существует");
                 //Название настройки процессов, по которой создаем документ
@@ -67,9 +67,10 @@ namespace ObjectTransferWCF.Services
 
         public int Update(string inventaryNumber, AccountingObjectModel accObject)
         {
-            if (Exists(accObject))
+            int i = Exists(accObject);
+            if (i == -1)
             {
-
+                Console.WriteLine("Такого объекта для обновления нет");
             }
             else
             {

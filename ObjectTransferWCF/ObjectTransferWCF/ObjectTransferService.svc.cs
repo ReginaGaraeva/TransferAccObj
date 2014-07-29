@@ -98,19 +98,6 @@ namespace ObjectTransferWCF
             InitResponseList();
         }
 
-        public string SayHello(string name)
-        {
-            return "Hello, " + name;
-        }
-
-        public string CreateList(string name)
-        {
-            DBSite dbSite = new DBSite("http://wsstest/");
-            //DBWeb dbWeb = dbSite.GetWeb("/dms/contracts");
-            //DBList dbList = dbWeb.GetList("Contracts");
-            //dbList.CreateItem();
-            return "success";
-        }
 
         private bool CheckDbConnect()
         {

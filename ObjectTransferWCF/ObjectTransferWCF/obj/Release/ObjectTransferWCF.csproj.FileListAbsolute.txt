@@ -10,7 +10,6 @@ D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.DMS
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.Lib.Base.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.Lib.MailSender.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.Lib.Logging.dll
-D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.Lib.SharePoint.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.UI.Controls.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.Fields.Lookup.dll
 D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\WSSC.V4.SYS.Lib.SPXObjects.dll

@@ -15,18 +15,6 @@ namespace Service.Host.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://objecttransferservice.ru/", ConfigurationName="ServiceReference1.IObjectTransferService")]
     public interface IObjectTransferService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/SayHello", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/SayHelloResponse")]
-        string SayHello(string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/SayHello", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/SayHelloResponse")]
-        System.Threading.Tasks.Task<string> SayHelloAsync(string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/CreateList", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/CreateListResponse")]
-        string CreateList(string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/CreateList", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/CreateListResponse")]
-        System.Threading.Tasks.Task<string> CreateListAsync(string name);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/CreateAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/CreateAccountingObjectResp" +
             "onse")]
         string CreateAccountingObject(string inventaryNumber, string description, string postingDate, string deprecationDate, string owner);
@@ -37,11 +25,11 @@ namespace Service.Host.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/UpdateAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/UpdateAccountingObjectResp" +
             "onse")]
-        string UpdateAccountingObject(string inventaryNumber, string accountingObjectData);
+        string UpdateAccountingObject(string oldInventaryNumber, string inventaryNumber, string description, string postingDate, string deprecationDate, string owner);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/UpdateAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/UpdateAccountingObjectResp" +
             "onse")]
-        System.Threading.Tasks.Task<string> UpdateAccountingObjectAsync(string inventaryNumber, string accountingObjectData);
+        System.Threading.Tasks.Task<string> UpdateAccountingObjectAsync(string oldInventaryNumber, string inventaryNumber, string description, string postingDate, string deprecationDate, string owner);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/DeleteAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/DeleteAccountingObjectResp" +
             "onse")]
@@ -79,22 +67,6 @@ namespace Service.Host.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public string SayHello(string name) {
-            return base.Channel.SayHello(name);
-        }
-        
-        public System.Threading.Tasks.Task<string> SayHelloAsync(string name) {
-            return base.Channel.SayHelloAsync(name);
-        }
-        
-        public string CreateList(string name) {
-            return base.Channel.CreateList(name);
-        }
-        
-        public System.Threading.Tasks.Task<string> CreateListAsync(string name) {
-            return base.Channel.CreateListAsync(name);
-        }
-        
         public string CreateAccountingObject(string inventaryNumber, string description, string postingDate, string deprecationDate, string owner) {
             return base.Channel.CreateAccountingObject(inventaryNumber, description, postingDate, deprecationDate, owner);
         }
@@ -103,12 +75,12 @@ namespace Service.Host.ServiceReference1 {
             return base.Channel.CreateAccountingObjectAsync(inventaryNumber, description, postingDate, deprecationDate, owner);
         }
         
-        public string UpdateAccountingObject(string inventaryNumber, string accountingObjectData) {
-            return base.Channel.UpdateAccountingObject(inventaryNumber, accountingObjectData);
+        public string UpdateAccountingObject(string oldInventaryNumber, string inventaryNumber, string description, string postingDate, string deprecationDate, string owner) {
+            return base.Channel.UpdateAccountingObject(oldInventaryNumber, inventaryNumber, description, postingDate, deprecationDate, owner);
         }
         
-        public System.Threading.Tasks.Task<string> UpdateAccountingObjectAsync(string inventaryNumber, string accountingObjectData) {
-            return base.Channel.UpdateAccountingObjectAsync(inventaryNumber, accountingObjectData);
+        public System.Threading.Tasks.Task<string> UpdateAccountingObjectAsync(string oldInventaryNumber, string inventaryNumber, string description, string postingDate, string deprecationDate, string owner) {
+            return base.Channel.UpdateAccountingObjectAsync(oldInventaryNumber, inventaryNumber, description, postingDate, deprecationDate, owner);
         }
         
         public string DeleteAccountingObject(string inventaryNumber) {

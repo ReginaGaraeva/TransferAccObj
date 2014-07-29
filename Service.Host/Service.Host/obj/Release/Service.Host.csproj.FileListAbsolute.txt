@@ -46,3 +46,9 @@ D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\WSSC.V4.DMS.F
 D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\WSSC.V4.DMS.Reports.dll
 D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\WSSC.V4.DMS.ConditionalAccess.dll
 D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\WSSC.V4.DMS.Fields.FileLink.dll
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\Microsoft.SharePoint.Client.dll
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\Microsoft.SharePoint.Client.Runtime.dll
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\Microsoft.SharePoint.dll
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\Microsoft.SharePoint.Security.dll
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\WSSC.V4.SYS.Lib.SharePoint.v2007.dll
+D:\Own\GitHub\TransferAccObj\Service.Host\Service.Host\bin\Release\WSSC.V4.SYS.Lib.SharePoint.v2010.dll

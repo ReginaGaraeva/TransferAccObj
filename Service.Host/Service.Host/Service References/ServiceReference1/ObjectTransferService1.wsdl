@@ -6,18 +6,6 @@
       <xsd:import schemaLocation="http://localhost:13313/ObjectTransferService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IObjectTransferService_SayHello_InputMessage">
-    <wsdl:part name="parameters" element="tns:SayHello" />
-  </wsdl:message>
-  <wsdl:message name="IObjectTransferService_SayHello_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SayHelloResponse" />
-  </wsdl:message>
-  <wsdl:message name="IObjectTransferService_CreateList_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreateList" />
-  </wsdl:message>
-  <wsdl:message name="IObjectTransferService_CreateList_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreateListResponse" />
-  </wsdl:message>
   <wsdl:message name="IObjectTransferService_CreateAccountingObject_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateAccountingObject" />
   </wsdl:message>
@@ -37,14 +25,6 @@
     <wsdl:part name="parameters" element="tns:DeleteAccountingObjectResponse" />
   </wsdl:message>
   <wsdl:portType name="IObjectTransferService">
-    <wsdl:operation name="SayHello">
-      <wsdl:input wsaw:Action="http://objecttransferservice.ru/IObjectTransferService/SayHello" message="tns:IObjectTransferService_SayHello_InputMessage" />
-      <wsdl:output wsaw:Action="http://objecttransferservice.ru/IObjectTransferService/SayHelloResponse" message="tns:IObjectTransferService_SayHello_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CreateList">
-      <wsdl:input wsaw:Action="http://objecttransferservice.ru/IObjectTransferService/CreateList" message="tns:IObjectTransferService_CreateList_InputMessage" />
-      <wsdl:output wsaw:Action="http://objecttransferservice.ru/IObjectTransferService/CreateListResponse" message="tns:IObjectTransferService_CreateList_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="CreateAccountingObject">
       <wsdl:input wsaw:Action="http://objecttransferservice.ru/IObjectTransferService/CreateAccountingObject" message="tns:IObjectTransferService_CreateAccountingObject_InputMessage" />
       <wsdl:output wsaw:Action="http://objecttransferservice.ru/IObjectTransferService/CreateAccountingObjectResponse" message="tns:IObjectTransferService_CreateAccountingObject_OutputMessage" />

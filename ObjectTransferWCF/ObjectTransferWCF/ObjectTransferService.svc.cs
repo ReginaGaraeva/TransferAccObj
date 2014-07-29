@@ -184,15 +184,21 @@ namespace ObjectTransferWCF
             try
             {
                 objectList.Delete(inventaryNumber);
-            
+
                 try
                 {
                     logService.WriteInfo(String.Format("Удален  объект учета\nИнвентарный номер: {0}", inventaryNumber));
                 }
-                catch { }
+                catch
+                {
+                    Console.WriteLine("Логи записать не удалось");
+                }
             }
-            catch{ }
-            
+            catch
+            {
+                Console.WriteLine("Удалить не удалось");
+            }
+
             return "";
         }
         //public string GetData(int value)

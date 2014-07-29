@@ -100,6 +100,7 @@ namespace ObjectTransferWCF.Services
 
         public int Delete(string InventaryNumber)
         {
+            Console.WriteLine("Пытаемся удалить");
             int i = Exists(InventaryNumber);
             if (i == -1)
             {
@@ -108,7 +109,7 @@ namespace ObjectTransferWCF.Services
             }
             else
             {
-                dbList.Items[i].Delete();
+                dbList.Items[i].SetValue("IsDeleted", true);
                 dbList.Items[i].Update();
             }
             Console.WriteLine("Удалили объект учета");

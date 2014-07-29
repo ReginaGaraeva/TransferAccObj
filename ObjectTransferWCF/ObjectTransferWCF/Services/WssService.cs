@@ -41,28 +41,29 @@ namespace ObjectTransferWCF.Services
 
         public int Add(AccountingObjectModel accObject)
         {
-            if (Exists(accObject.InventaryNumber) == -1)
-            {
-                Console.WriteLine("Такой объект учета еще не существует");
-                //Название настройки процессов, по которой создаем документ
-                string settingName = "requests";
-                //Создаем документ по процессу
-                bool hasAccess = false;               
-                dmsLogic.CreateDMSItem(dmsContext, settingName, dbList.CreateItem(), out hasAccess);
-                DBItem dbItem = dmsLogic.DMSItem.Item;
-                //Заполняем поля карточки
-                dbItem.SetValue("InventaryNumber", accObject.InventaryNumber);
-                dbItem.SetValue("Description", accObject.Description);
-                dbItem.SetValue("PostingDate", accObject.PostingDate);
-                dbItem.SetValue("DeprecationDate", accObject.DeprecationDate);
-                dbItem.SetValue("Owner", accObject.Owner);
-                dbItem.SetValue("IsDeleted", accObject.Deleted);
-                //принимаем решение "Зарегистрировать документ"
-                dmsLogic.AutoAcceptSolution("Зарегистрировать документ");
-                return 0;
-            }
-            else
-                return 0;
+            Console.WriteLine("Такой объект учета еще не существует");
+            Console.WriteLine("-----------------------------");
+            Console.WriteLine(String.Format("Добавляю объект учета\nИнв. номер: {0}\nОписание: {1}\nДата оприходования: {2}\nДата амортизации: {3}\nМОЛ: {4}",
+                accObject.InventaryNumber, accObject.Description, accObject.PostingDate, accObject.DeprecationDate, accObject.Owner));
+            Console.WriteLine("-----------------------------");
+            //Название настройки процессов, по которой создаем документ
+            string settingName = "Requests";
+            //Создаем документ по процессу
+            bool hasAccess = false;
+            dmsLogic.CreateDMSItem(dmsContext, settingName, dbList.CreateItem(), out hasAccess);
+            DBItem dbItem = dmsLogic.DMSItem.Item;
+            //Заполняем поля карточки
+            Console.WriteLine("Заполняем поля списка");
+            dbItem.SetValue("InventaryNumber", accObject.InventaryNumber);
+            dbItem.SetValue("Description", accObject.Description);
+            dbItem.SetValue("PostingDate", accObject.PostingDate);
+            dbItem.SetValue("DeprecationDate", accObject.DeprecationDate);
+            dbItem.SetValue("Owner", accObject.Owner);
+            dbItem.SetValue("IsDeleted", accObject.Deleted);
+            //принимаем решение "Зарегистрировать документ"
+            Console.WriteLine("Регистрируем документ");
+            dmsLogic.AutoAcceptSolution("Зарегистрировать документ");
+            return 0;
         }
 
         public int Update(string OldInventaryNumber, AccountingObjectModel accObject)

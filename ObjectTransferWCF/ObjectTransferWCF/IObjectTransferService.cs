@@ -13,18 +13,13 @@ namespace ObjectTransferWCF
     [ServiceContract(Namespace = "http://objecttransferservice.ru/")]
     public interface IObjectTransferService
     {
-        [OperationContract]
-        string SayHello(string name);
-
-        [OperationContract]
-        string CreateList(string name);
-
+        
         [OperationContract]
         string CreateAccountingObject(string inventaryNumber, string description, string postingDate,
             string deprecationDate, string owner);
 
         [OperationContract]
-        string UpdateAccountingObject(string inventaryNumber, string description, string postingDate,
+        string UpdateAccountingObject(string oldInventaryNumber, string inventaryNumber, string description, string postingDate,
             string deprecationDate, string owner);
 
         [OperationContract]

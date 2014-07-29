@@ -76,13 +76,23 @@ namespace ObjectTransferWCF.Services
             }
             else
             {
+                Console.WriteLine("Такой объект существует");
+                Console.WriteLine("-----------------------------");
+                Console.WriteLine(String.Format("Изменяю объект учета ({0})\nИнв. номер: {1}\nОписание: {2}\nДата оприходования: {3}\nДата амортизации: {4}\nМОЛ: {5}",
+                    OldInventaryNumber, accObject.InventaryNumber, accObject.Description, accObject.PostingDate, accObject.DeprecationDate, accObject.Owner));
+                Console.WriteLine("-----------------------------");
                 dbList.Items[i].SetValue("InventaryNumber", accObject.InventaryNumber);
                 dbList.Items[i].SetValue("Description", accObject.Description);
                 dbList.Items[i].SetValue("PostingDate", accObject.PostingDate);
                 dbList.Items[i].SetValue("DeprecationDate", accObject.DeprecationDate);
                 dbList.Items[i].SetValue("Owner", accObject.Owner);
                 dbList.Items[i].SetValue("IsDeleted", accObject.Deleted);
+                dbList.Items[i].Update();
                 Console.WriteLine("Обновление прошло успешно?");
+                foreach (var l in dbList.Items)
+                {
+                    Console.WriteLine("{0}",l.GetValue("InventaryNumber").ToString());
+                }
                 return 5;
             }
             return 0;
@@ -97,7 +107,10 @@ namespace ObjectTransferWCF.Services
                 return 11;
             }
             else
+            {
                 dbList.Items[i].Delete();
+                dbList.Items[i].Update();
+            }
             Console.WriteLine("Удалили объект учета");
             return 9;
         }

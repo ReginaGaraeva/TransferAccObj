@@ -12,7 +12,7 @@ namespace ObjectTransferWCF.Services
         {
             using (var context = new ObjectTransferDBEntities())
             {
-               context.SaveChanges();
+                Console.WriteLine("пишу лог");
                context.Logs.Add(
                    new Logs
                    {
@@ -21,6 +21,8 @@ namespace ObjectTransferWCF.Services
                        MessageType = false,
                        StackTrace = null,
                    });
+               Console.WriteLine("сохраняю лог в базу");
+               context.SaveChanges();
             }
         }
 

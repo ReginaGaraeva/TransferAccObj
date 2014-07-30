@@ -25,6 +25,8 @@ namespace Service.Host.Services
 
         public void TestItem()
         {
+            //Console.WriteLine(String.Format("Добавляю объект учета\nИнв. номер: {0}\nОписание: {1}\nДата оприходования: {2}\nДата амортизации: {3}\nМОЛ: {4}",
+            //    accObject.InventaryNumber, accObject.Description, accObject.PostingDate, accObject.DeprecationDate, accObject.Owner));
             //Random rnd = new Random();
             //int num = Convert.ToInt32(Thread.CurrentThread.Name);
             //threadsWrapper[num].service = new ObjectTransferServiceClient();

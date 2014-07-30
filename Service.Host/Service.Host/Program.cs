@@ -35,20 +35,20 @@ namespace Service.Host
                 owner = generator.GenerateOwner();
             DateTime postingDate = Convert.ToDateTime(generator.GetDate()), deprecationDate = Convert.ToDateTime(generator.GetDate());
 
-
-            objectList.Update("10384848", new ObjectTransferWCF.Models.AccountingObjectModel()
-            {
-                InventaryNumber = inventaryNumber,
-                Description = description,
-                PostingDate = postingDate,
-                DeprecationDate = deprecationDate,
-                Owner = owner,
-                Deleted = false
-            });
-            Console.WriteLine("Вызываю запись лога...");
-            logService.WriteInfo(String.Format("Обновлен объект учета\nИнвентарный номер: {0}\nОписание: {1}\nДата оприходования: {2}\nДата амортизации: {3}\nМОЛ: {4}",
-            inventaryNumber, description, postingDate, deprecationDate, owner));
-            Console.WriteLine("Лог записан");
+            //objectList.Delete("8539264");
+            //objectList.Update("10384848", new ObjectTransferWCF.Models.AccountingObjectModel()
+            //{
+            //    InventaryNumber = inventaryNumber,
+            //    Description = description,
+            //    PostingDate = postingDate,
+            //    DeprecationDate = deprecationDate,
+            //    Owner = owner,
+            //    Deleted = false
+            //});
+            //Console.WriteLine("Вызываю запись лога...");
+            //logService.WriteInfo(String.Format("Обновлен объект учета\nИнвентарный номер: {0}\nОписание: {1}\nДата оприходования: {2}\nДата амортизации: {3}\nМОЛ: {4}",
+            //inventaryNumber, description, postingDate, deprecationDate, owner));
+            //Console.WriteLine("Лог записан");
             //objectList.Add(new ObjectTransferWCF.Models.AccountingObjectModel()
             //{
             //    InventaryNumber = generator.GenerateInventaryNumber(7),

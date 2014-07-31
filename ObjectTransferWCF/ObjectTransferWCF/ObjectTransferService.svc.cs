@@ -77,9 +77,14 @@ namespace ObjectTransferWCF
             });
              responseList.Add(11, new ResponseModel()
             {
-                Message = "Fail in updating oject. Object not found.",
+                Message = "Fail in updating accounting object. Object not found.",
                 isError = true
             });
+             responseList.Add(12, new ResponseModel()
+             {
+                 Message = "Connection failed. Database is not available.",
+                 isError = true
+             });
 
         }
         #endregion
@@ -95,12 +100,12 @@ namespace ObjectTransferWCF
                 throw new Exception("Не удалось создать список объектов учета. "+ex.Message);
             }
             logService = new LogService();
-            InitResponseList();
+            InitResponseList();           
         }
 
 
         private bool CheckDbConnect()
-        {
+        {           
             using (var context = new ObjectTransferDBEntities())
             {
                 try
@@ -121,29 +126,41 @@ namespace ObjectTransferWCF
         {
             try
             {
-                objectList.Add(new Models.AccountingObjectModel()
-                {
-                    InventaryNumber = inventaryNumber,
-                    Description = description,
-                    PostingDate = Convert.ToDateTime(postingDate),
-                    DeprecationDate = Convert.ToDateTime(deprecationDate),
-                    Owner = owner,
-                    Deleted = false
-                });
+                if (!CheckDbConnect())
+                    return responseList[12].Message;
+                int response = 
+                    objectList.Add(new Models.AccountingObjectModel()
+                    {
+                        InventaryNumber = inventaryNumber,
+                        Description = description,
+                        PostingDate = Convert.ToDateTime(postingDate),
+                        DeprecationDate = Convert.ToDateTime(deprecationDate),
+                        Owner = owner,
+                        Deleted = false
+                    });
                 try
                 {
-                    logService.WriteInfo(String.Format("Добавлен объект учета\nИнвентарный номер: {0}\nОписание: {1}\nДата оприходования: {2}\nДата амортизации: {3}\nМОЛ: {4}",
+                    logService.WriteInfo(String.Format(responseList[response].Message + ". Inventary number: {0}. Description: {1}. Posting date: {2}. Deprecation date: {3}. Owner: {4}.",
                         inventaryNumber, description, postingDate, deprecationDate, owner));
                 }
                 catch
                 {
-                    return "Не удалось создать объект учета. И лог тоже не записался(";
+                    return responseList[12].Message;//ошибка соединения с базой данных
                 }
-                return "Объект учета успешно создан.";
+                return responseList[1].Message;//объект учета успешно создан
             }
             catch
             {
-                return "Не удалось создать объект учета.";
+                try
+                {
+                    logService.WriteInfo(String.Format(responseList[2].Message + ". Inventary number: {0}. Description: {1}. Posting date: {2}. Deprecation date: {3}. Owner: {4}.",
+                        inventaryNumber, description, postingDate, deprecationDate, owner));
+                }
+                catch
+                {
+                    return responseList[12].Message;//ошибка соединения с базой данных
+                }
+                return responseList[2].Message;//ошибка создания объекта учета
             }
             
         }
@@ -153,6 +170,8 @@ namespace ObjectTransferWCF
         {
             try
             {
+                if (!CheckDbConnect())
+                    return responseList[12].Message;
                 objectList.Update(oldInventaryNumber, new Models.AccountingObjectModel()
                 {
                     InventaryNumber = inventaryNumber,
@@ -169,13 +188,13 @@ namespace ObjectTransferWCF
                 }
                 catch
                 {
-                    return "Не удалось обновить объект учета";
+                    return responseList[12].Message;//ошибка соединения с базой данных
                 }
-                return "Объект учета успешно создан.";
+                return responseList[5].Message;//объект учета успешно обновлен
             }
             catch
             {
-                return "Не удалось создать объект учета.";
+                return responseList[6].Message;//не удалось обновить объект учета
             }
         }
 
@@ -183,8 +202,9 @@ namespace ObjectTransferWCF
         {
             try
             {
+                if (!CheckDbConnect())
+                    return responseList[12].Message;
                 objectList.Delete(inventaryNumber);
-
                 try
                 {
                     logService.WriteInfo(String.Format("Удален  объект учета\nИнвентарный номер: {0}", inventaryNumber));

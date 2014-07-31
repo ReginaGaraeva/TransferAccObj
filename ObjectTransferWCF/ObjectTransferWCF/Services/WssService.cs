@@ -30,23 +30,30 @@ namespace ObjectTransferWCF.Services
         }
 
         public int Add(AccountingObjectModel accObject)
-        {        
-            int i = Exists(accObject.InventaryNumber);
-            if (i == -1)
+        {
+            try
             {
-                DBItem dbItem = dbList.CreateItem();
-                dbItem.SetValue("InventaryNumber", accObject.InventaryNumber);
-                dbItem.SetValue("Description", accObject.Description);
-                dbItem.SetValue("PostingDate", accObject.PostingDate);
-                dbItem.SetValue("DeprecationDate", accObject.DeprecationDate);
-                dbItem.SetValue("Owner", accObject.Owner);
-                dbItem.SetValue("IsDeleted", accObject.Deleted);
-                dbItem.Update();
-                return 1;
+                int i = Exists(accObject.InventaryNumber);
+                if (i == -1)
+                {
+                    DBItem dbItem = dbList.CreateItem();
+                    dbItem.SetValue("InventaryNumber", accObject.InventaryNumber);
+                    dbItem.SetValue("Description", accObject.Description);
+                    dbItem.SetValue("PostingDate", accObject.PostingDate);
+                    dbItem.SetValue("DeprecationDate", accObject.DeprecationDate);
+                    dbItem.SetValue("Owner", accObject.Owner);
+                    dbItem.SetValue("IsDeleted", accObject.Deleted);
+                    dbItem.Update();
+                    return 1;
+                }
+                else
+                {
+                    return 4;
+                }
             }
-            else
+            catch
             {
-                return 4;
+                return 3;
             }
         }
 
@@ -101,6 +108,21 @@ namespace ObjectTransferWCF.Services
                 }
             }
             
+        }
+
+        public void RollbackCreate(string inventaryNumber)
+        {
+            dbList.Items.Where(x => x.GetValue("InventaryNumber") == inventaryNumber).FirstOrDefault().Delete();            
+        }
+
+        public void RollbackUpdate(string inventaryNumber, AccountingObjectModel oldAccObject)
+        {
+            Update(inventaryNumber, oldAccObject);
+        }
+
+        public void RollbackDelete(string inventaryNumber)
+        {
+            dbList.Items.Where(x => x.GetValue("InventaryNumber") == inventaryNumber).FirstOrDefault().SetValue("IsDeleted", false);
         }
 
     }

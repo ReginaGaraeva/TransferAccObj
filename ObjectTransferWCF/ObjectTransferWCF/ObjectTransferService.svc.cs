@@ -145,6 +145,7 @@ namespace ObjectTransferWCF
                 }
                 catch
                 {
+                    objectList.RollbackCreate(inventaryNumber);
                     return responseList[12].Message;//ошибка соединения с базой данных
                 }
                 return responseList[1].Message;//объект учета успешно создан
@@ -172,28 +173,42 @@ namespace ObjectTransferWCF
             {
                 if (!CheckDbConnect())
                     return responseList[12].Message;
-                objectList.Update(oldInventaryNumber, new Models.AccountingObjectModel()
-                {
-                    InventaryNumber = inventaryNumber,
-                    Description = description,
-                    PostingDate = Convert.ToDateTime(postingDate),
-                    DeprecationDate = Convert.ToDateTime(deprecationDate),
-                    Owner = owner,
-                    Deleted = false
-                });
+                //Ниже получается двойная работа, ищем объект учета по инвентарному номеру, чтобы в случае ошибки сделать откат изменений,
+                //но в Update тоже выполняется поиск этого объекта в Exists. Надо что-то как-то переделать)) 
+                AccountingObjectModel oldAccObj = objectList.GetItem(oldInventaryNumber);
+                int response = 
+                    objectList.Update(oldInventaryNumber, new Models.AccountingObjectModel()
+                    {
+                        InventaryNumber = inventaryNumber,
+                        Description = description,
+                        PostingDate = Convert.ToDateTime(postingDate),
+                        DeprecationDate = Convert.ToDateTime(deprecationDate),
+                        Owner = owner,
+                        Deleted = false
+                    });
                 try
                 {
-                    logService.WriteInfo(String.Format("Обновлен объект учета\nИнвентарный номер: {0}\nОписание: {1}\nДата оприходования: {2}\nДата амортизации: {3}\nМОЛ: {4}",
-                        inventaryNumber, description, postingDate, deprecationDate, owner));
+                    logService.WriteInfo(String.Format(responseList[response].Message + ". Object's inventary number: {0}. New data: inventary number: {1}. Description: {2}. Posting date: {3}. Deprecation date: {4}. Owner: {5}.",
+                        oldInventaryNumber, inventaryNumber, description, postingDate, deprecationDate, owner));
                 }
                 catch
                 {
+                    objectList.RollbackUpdate(inventaryNumber, oldAccObj);
                     return responseList[12].Message;//ошибка соединения с базой данных
                 }
                 return responseList[5].Message;//объект учета успешно обновлен
             }
             catch
             {
+                try
+                {
+                    logService.WriteInfo(String.Format(responseList[6].Message + ". Object's inventary number: {0}. New data: inventary number: {1}. Description: {2}. Posting date: {3}. Deprecation date: {4}. Owner: {5}.",
+                        oldInventaryNumber, inventaryNumber, description, postingDate, deprecationDate, owner));
+                }
+                catch
+                {
+                    return responseList[12].Message;//ошибка соединения с базой данных
+                }
                 return responseList[6].Message;//не удалось обновить объект учета
             }
         }
@@ -204,39 +219,31 @@ namespace ObjectTransferWCF
             {
                 if (!CheckDbConnect())
                     return responseList[12].Message;
-                objectList.Delete(inventaryNumber);
+                int response = 
+                    objectList.Delete(inventaryNumber);
                 try
                 {
-                    logService.WriteInfo(String.Format("Удален  объект учета\nИнвентарный номер: {0}", inventaryNumber));
+                    logService.WriteInfo(String.Format(responseList[response].Message + ". Object's inventary number: {0}", inventaryNumber));                   
                 }
                 catch
                 {
-                    Console.WriteLine("Логи записать не удалось");
+                    return responseList[12].Message;//ошибка соединения с базой данных
                 }
+                return responseList[response].Message;//объект удален успешно
             }
             catch
             {
-                Console.WriteLine("Удалить не удалось");
+                try
+                {
+                    logService.WriteInfo(String.Format(responseList[10].Message + ". Object's inventary number: {0}", inventaryNumber));
+                }
+                catch
+                {
+                    return responseList[12].Message;//ошибка соединения с базой данных
+                }
+                return responseList[10].Message;//ошибка соединения с базой данных
             }
-
-            return "";
         }
-        //public string GetData(int value)
-        //{
-        //    return string.Format("You entered: {0}", value);
-        //}
-
-        //public CompositeType GetDataUsingDataContract(CompositeType composite)
-        //{
-        //    if (composite == null)
-        //    {
-        //        throw new ArgumentNullException("composite");
-        //    }
-        //    if (composite.BoolValue)
-        //    {
-        //        composite.StringValue += "Suffix";
-        //    }
-        //    return composite;
-        //}
+        
     }
 }

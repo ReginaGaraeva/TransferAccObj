@@ -125,5 +125,22 @@ namespace ObjectTransferWCF.Services
             dbList.Items.Where(x => x.GetValue("InventaryNumber") == inventaryNumber).FirstOrDefault().SetValue("IsDeleted", false);
         }
 
+        public AccountingObjectModel GetItem(string inventaryNumber)
+        {
+            DBItem dbItem = dbList.Items.Where(x => x.GetValue("InventaryNumber") == inventaryNumber).FirstOrDefault();
+            if (dbItem != null)
+                return new AccountingObjectModel()
+                {
+                    InventaryNumber = dbItem.GetValue("InventaryNumber").ToString(),
+                    Description = dbItem.GetValue("Desription").ToString(),
+                    PostingDate = Convert.ToDateTime(dbItem.GetValue("PostingDate")),
+                    DeprecationDate = Convert.ToDateTime(dbItem.GetValue("DeprecationDate")),
+                    Owner = dbItem.GetValue("Owner").ToString(),
+                    Deleted = Convert.ToBoolean(dbItem.GetValue("IsDeleted"))
+                };
+            else
+                return null;
+        }
+
     }
 }

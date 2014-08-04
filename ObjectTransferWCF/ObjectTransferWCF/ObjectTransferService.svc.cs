@@ -77,7 +77,7 @@ namespace ObjectTransferWCF
             });
              responseList.Add(11, new ResponseModel()
             {
-                Message = "Fail in updating accounting object. Object not found.",
+                Message = "Fail in deleting accounting object. Object not found.",
                 isError = true
             });
              responseList.Add(12, new ResponseModel()

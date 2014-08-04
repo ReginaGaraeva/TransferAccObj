@@ -29,7 +29,7 @@ namespace ObjectTransferWCF.Services
             return -1;
         }
 
-        public int Add(AccountingObjectModel accObject)
+        public string Add(AccountingObjectModel accObject)
         {
             try
             {
@@ -43,18 +43,21 @@ namespace ObjectTransferWCF.Services
                     dbItem.SetValue("DeprecationDate", accObject.DeprecationDate);
                     dbItem.SetValue("Owner", accObject.Owner);
                     dbItem.SetValue("IsDeleted", accObject.Deleted);
-                    dbItem.Update();
-                    return 1;
+                    dbItem.Update(); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    return "Список обновлен";
+                   // return 1;
                 }
                 else
                 {
-                    return 4;
+                    return "Объект учета уже есть";
+                    //return 4;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                return 3;
-            }
+                return ex.Message;
+                //return 3;
+            }          
         }
 
         public int Update(string OldInventaryNumber, AccountingObjectModel accObject)
@@ -62,7 +65,7 @@ namespace ObjectTransferWCF.Services
             int i = Exists(OldInventaryNumber);
             if (i == -1)
             {
-                if (Add(accObject) == 1)
+                if (Add(accObject) == "1")
                     return 7;
                 else
                     return 8;

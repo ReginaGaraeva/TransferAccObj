@@ -125,11 +125,11 @@ namespace ObjectTransferWCF
             string deprecationDate, string owner)
         {
             try
-            {
+            {              
                 if (!CheckDbConnect())
                     return responseList[12].Message;
-                int response = 
-                    objectList.Add(new Models.AccountingObjectModel()
+                //int response = 
+                 return objectList.Add(new Models.AccountingObjectModel()
                     {
                         InventaryNumber = inventaryNumber,
                         Description = description,
@@ -138,29 +138,29 @@ namespace ObjectTransferWCF
                         Owner = owner,
                         Deleted = false
                     });
-                try
-                {
-                    logService.WriteInfo(String.Format(responseList[response].Message + ". Inventary number: {0}. Description: {1}. Posting date: {2}. Deprecation date: {3}. Owner: {4}.",
-                        inventaryNumber, description, postingDate, deprecationDate, owner));
-                }
-                catch
-                {
-                    objectList.RollbackCreate(inventaryNumber);
-                    return responseList[12].Message;//ошибка соединения с базой данных
-                }
-                return responseList[1].Message;//объект учета успешно создан
+                //try
+                //{
+                //    logService.WriteInfo(String.Format(responseList[response].Message + ". Inventary number: {0}. Description: {1}. Posting date: {2}. Deprecation date: {3}. Owner: {4}.",
+                //        inventaryNumber, description, postingDate, deprecationDate, owner));
+                //}
+                //catch
+                //{
+                //    objectList.RollbackCreate(inventaryNumber);
+                //    return responseList[12].Message;//ошибка соединения с базой данных
+                //}
+                //return responseList[response].Message;//объект учета успешно создан
             }
             catch
             {
-                try
-                {
-                    logService.WriteInfo(String.Format(responseList[2].Message + ". Inventary number: {0}. Description: {1}. Posting date: {2}. Deprecation date: {3}. Owner: {4}.",
-                        inventaryNumber, description, postingDate, deprecationDate, owner));
-                }
-                catch
-                {
-                    return responseList[12].Message;//ошибка соединения с базой данных
-                }
+                //try
+                //{
+                //    logService.WriteInfo(String.Format(responseList[2].Message + ". Inventary number: {0}. Description: {1}. Posting date: {2}. Deprecation date: {3}. Owner: {4}.",
+                //        inventaryNumber, description, postingDate, deprecationDate, owner));
+                //}
+                //catch
+                //{
+                //    return responseList[12].Message;//ошибка соединения с базой данных
+                //}
                 return responseList[2].Message;//ошибка создания объекта учета
             }
             
@@ -196,7 +196,7 @@ namespace ObjectTransferWCF
                     objectList.RollbackUpdate(inventaryNumber, oldAccObj);
                     return responseList[12].Message;//ошибка соединения с базой данных
                 }
-                return responseList[5].Message;//объект учета успешно обновлен
+                return responseList[response].Message;//объект учета успешно обновлен
             }
             catch
             {
@@ -227,6 +227,7 @@ namespace ObjectTransferWCF
                 }
                 catch
                 {
+                    objectList.RollbackDelete(inventaryNumber);
                     return responseList[12].Message;//ошибка соединения с базой данных
                 }
                 return responseList[response].Message;//объект удален успешно

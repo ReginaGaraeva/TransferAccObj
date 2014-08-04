@@ -12,6 +12,7 @@ using WSSC.V4.DMS.Workflow;
 using ObjectTransferWCF.Services;
 using System.ServiceModel.Activation;
 using ObjectTransferWCF.Models;
+using ObjectTransferWCF;
 
 namespace Service.Host
 {
@@ -19,21 +20,26 @@ namespace Service.Host
     {
         static void Main(string[] args)
         {
-            //using (var service = new Service.Host.ServiceReference1.ObjectTransferServiceClient())
-            //{
-            //    //service.ClientCredentials.UserName.UserName = @"wssdom\Администратор";
-            //    //service.ClientCredentials.UserName.Password = @"P@ssw0rd";
-            //    Generator generator = new Generator();
-            //    Console.WriteLine(service.CreateAccountingObject(generator.GenerateInventaryNumber(7), generator.GenerateDescription(),
-            //        generator.GetDate(), generator.GetDate(), generator.GenerateOwner()));
-            //}
+            using (var service = new Service.Host.ServiceReference1.ObjectTransferServiceClient())
+            {
+                //service.ClientCredentials.UserName.UserName = @"wssdom\Администратор";
+                //service.ClientCredentials.UserName.Password = @"P@ssw0rd";
+                Generator generator = new Generator();
+                Console.WriteLine(service.CreateAccountingObject(generator.GenerateInventaryNumber(7), generator.GenerateDescription(),
+                    generator.GetDate(), generator.GetDate(), generator.GenerateOwner()));
+            }
 
-            Generator generator = new Generator();
-            WSSList objectList = new WSSList();
-            LogService logService = new LogService();
-            string inventaryNumber = generator.GenerateInventaryNumber(7), description = generator.GenerateDescription(),
-                owner = generator.GenerateOwner();
-            DateTime postingDate = Convert.ToDateTime(generator.GetDate()), deprecationDate = Convert.ToDateTime(generator.GetDate());
+            //Generator generator = new Generator();
+            //ObjectTransferService service = new ObjectTransferService();
+            //Console.WriteLine(service.CreateAccountingObject(generator.GenerateInventaryNumber(7), generator.GenerateDescription(),
+            //        generator.GetDate(), generator.GetDate(), generator.GenerateOwner()));
+
+            //Generator generator = new Generator();
+            //WSSList objectList = new WSSList();
+            //LogService logService = new LogService();
+            //string inventaryNumber = generator.GenerateInventaryNumber(7), description = generator.GenerateDescription(),
+            //    owner = generator.GenerateOwner();
+            //DateTime postingDate = Convert.ToDateTime(generator.GetDate()), deprecationDate = Convert.ToDateTime(generator.GetDate());
 
             //objectList.Delete("8539264");
             //objectList.Update("10384848", new ObjectTransferWCF.Models.AccountingObjectModel()

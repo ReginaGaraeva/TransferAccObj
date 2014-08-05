@@ -123,6 +123,7 @@
       <DependentUpon>ObjectTransferDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountingObjectModel.cs" />
+    <Compile Include="Models\MethodModel.cs" />
     <Compile Include="Models\ResponseModel.cs" />
     <Compile Include="ObjectTransferDBModel.Context.cs">
       <AutoGen>True</AutoGen>

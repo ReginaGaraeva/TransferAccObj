@@ -10,6 +10,8 @@ using WSSC.V4.DMS.Workflow;
 using ObjectTransferWCF.Services;
 using System.ServiceModel.Activation;
 using ObjectTransferWCF.Models;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace ObjectTransferWCF
 {
@@ -89,6 +91,20 @@ namespace ObjectTransferWCF
         }
         #endregion
 
+        public MethodModel[] GetMethodsInfo()
+        {
+            XmlSerializer formatter = new XmlSerializer(typeof(MethodModel[]));
+            //десериализация
+            using (FileStream fs = new FileStream("persons.xml", FileMode.OpenOrCreate))
+            {
+                MethodModel[] piy = (Person[])formatter.Deserialize(fs);
+
+                foreach (Person p in newPersons)
+                {
+                    Console.WriteLine("Имя: {0} --- Возраст: {1}", p.Name, p.Age);
+                }
+            }
+        }
         public ObjectTransferService()
         {
             try

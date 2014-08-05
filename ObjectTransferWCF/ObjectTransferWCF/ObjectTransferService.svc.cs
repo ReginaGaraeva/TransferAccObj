@@ -129,7 +129,7 @@ namespace ObjectTransferWCF
                 if (!CheckDbConnect())
                     return responseList[12].Message;
                 //int response = 
-                 return objectList.Add(new Models.AccountingObjectModel()
+                return objectList.Add(new Models.AccountingObjectModel()
                     {
                         InventaryNumber = inventaryNumber,
                         Description = description,
@@ -145,7 +145,7 @@ namespace ObjectTransferWCF
                 //}
                 //catch
                 //{
-                //    objectList.RollbackCreate(inventaryNumber);
+                //    if (response == 1) objectList.RollbackCreate(inventaryNumber);
                 //    return responseList[12].Message;//ошибка соединения с базой данных
                 //}
                 //return responseList[response].Message;//объект учета успешно создан
@@ -193,7 +193,7 @@ namespace ObjectTransferWCF
                 }
                 catch
                 {
-                    objectList.RollbackUpdate(inventaryNumber, oldAccObj);
+                    if (response == 5) objectList.RollbackUpdate(inventaryNumber, oldAccObj);
                     return responseList[12].Message;//ошибка соединения с базой данных
                 }
                 return responseList[response].Message;//объект учета успешно обновлен
@@ -227,7 +227,7 @@ namespace ObjectTransferWCF
                 }
                 catch
                 {
-                    objectList.RollbackDelete(inventaryNumber);
+                    if (response == 9) objectList.RollbackDelete(inventaryNumber);
                     return responseList[12].Message;//ошибка соединения с базой данных
                 }
                 return responseList[response].Message;//объект удален успешно

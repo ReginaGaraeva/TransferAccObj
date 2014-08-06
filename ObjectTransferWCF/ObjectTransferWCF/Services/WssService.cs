@@ -10,11 +10,12 @@ namespace ObjectTransferWCF.Services
 {
     public class WSSList
     {
+        DBSite dbSite;
         private DBList dbList;
 
         public WSSList()
         {           
-            DBSite dbSite = new DBSite("http://wsstest");
+            dbSite = new DBSite("http://wsstest");
             DBWeb dbWeb = dbSite.GetWeb("/dms/requests");
             dbList = dbWeb.GetList("AccountingObjects");
         }
@@ -29,7 +30,7 @@ namespace ObjectTransferWCF.Services
             return -1;
         }
 
-        public string Add(AccountingObjectModel accObject)
+        public int Add(AccountingObjectModel accObject)
         {
             try
             {
@@ -44,19 +45,16 @@ namespace ObjectTransferWCF.Services
                     dbItem.SetValue("Owner", accObject.Owner);
                     dbItem.SetValue("IsDeleted", accObject.Deleted);
                     dbItem.Update(); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    return "Список обновлен";
-                   // return 1;
+                    return 1;
                 }
                 else
                 {
-                    return "Объект учета уже есть";
-                    //return 4;
+                    return 4;
                 }
             }
             catch (Exception ex)
             {
-                return ex.Message;
-                //return 3;
+                return 3;
             }          
         }
 
@@ -65,7 +63,7 @@ namespace ObjectTransferWCF.Services
             int i = Exists(OldInventaryNumber);
             if (i == -1)
             {
-                if (Add(accObject) == "1")
+                if (Add(accObject) == 1)
                     return 7;
                 else
                     return 8;
@@ -143,6 +141,12 @@ namespace ObjectTransferWCF.Services
                 };
             else
                 return null;
+        }
+
+        private int GetOwnerID()
+        {
+            DBWeb dbWeb = dbSite.GetWeb("/");
+            dbList = dbWeb.GetList("AccountingObjects");
         }
 
     }

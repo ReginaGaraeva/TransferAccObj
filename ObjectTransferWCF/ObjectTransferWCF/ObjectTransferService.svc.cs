@@ -93,17 +93,18 @@ namespace ObjectTransferWCF
 
         public MethodModel[] GetMethodsInfo()
         {
-            XmlSerializer formatter = new XmlSerializer(typeof(MethodModel[]));
-            //десериализация
-            using (FileStream fs = new FileStream("persons.xml", FileMode.OpenOrCreate))
-            {
-                MethodModel[] piy = (Person[])formatter.Deserialize(fs);
+            //XmlSerializer formatter = new XmlSerializer(typeof(MethodModel[]));
+            ////десериализация
+            //using (FileStream fs = new FileStream("persons.xml", FileMode.OpenOrCreate))
+            //{
+            //    MethodModel[] piy = (Person[])formatter.Deserialize(fs);
 
-                foreach (Person p in newPersons)
-                {
-                    Console.WriteLine("Имя: {0} --- Возраст: {1}", p.Name, p.Age);
-                }
-            }
+            //    foreach (Person p in newPersons)
+            //    {
+            //        Console.WriteLine("Имя: {0} --- Возраст: {1}", p.Name, p.Age);
+            //    }
+            //}
+            return new MethodModel[1];
         }
         public ObjectTransferService()
         {
@@ -144,8 +145,8 @@ namespace ObjectTransferWCF
             {              
                 if (!CheckDbConnect())
                     return responseList[12].Message;
-                //int response = 
-                return objectList.Add(new Models.AccountingObjectModel()
+                int response = 
+                    objectList.Add(new Models.AccountingObjectModel()
                     {
                         InventaryNumber = inventaryNumber,
                         Description = description,
@@ -154,29 +155,29 @@ namespace ObjectTransferWCF
                         Owner = owner,
                         Deleted = false
                     });
-                //try
-                //{
-                //    logService.WriteInfo(String.Format(responseList[response].Message + ". Inventary number: {0}. Description: {1}. Posting date: {2}. Deprecation date: {3}. Owner: {4}.",
-                //        inventaryNumber, description, postingDate, deprecationDate, owner));
-                //}
-                //catch
-                //{
-                //    if (response == 1) objectList.RollbackCreate(inventaryNumber);
-                //    return responseList[12].Message;//ошибка соединения с базой данных
-                //}
-                //return responseList[response].Message;//объект учета успешно создан
+                try
+                {
+                    logService.WriteInfo(String.Format(responseList[response].Message + ". Inventary number: {0}. Description: {1}. Posting date: {2}. Deprecation date: {3}. Owner: {4}.",
+                        inventaryNumber, description, postingDate, deprecationDate, owner));
+                }
+                catch
+                {
+                    if (response == 1) objectList.RollbackCreate(inventaryNumber);
+                    return responseList[12].Message;//ошибка соединения с базой данных
+                }
+                return responseList[response].Message;//объект учета успешно создан
             }
             catch
             {
-                //try
-                //{
-                //    logService.WriteInfo(String.Format(responseList[2].Message + ". Inventary number: {0}. Description: {1}. Posting date: {2}. Deprecation date: {3}. Owner: {4}.",
-                //        inventaryNumber, description, postingDate, deprecationDate, owner));
-                //}
-                //catch
-                //{
-                //    return responseList[12].Message;//ошибка соединения с базой данных
-                //}
+                try
+                {
+                    logService.WriteInfo(String.Format(responseList[2].Message + ". Inventary number: {0}. Description: {1}. Posting date: {2}. Deprecation date: {3}. Owner: {4}.",
+                        inventaryNumber, description, postingDate, deprecationDate, owner));
+                }
+                catch
+                {
+                    return responseList[12].Message;//ошибка соединения с базой данных
+                }
                 return responseList[2].Message;//ошибка создания объекта учета
             }
             

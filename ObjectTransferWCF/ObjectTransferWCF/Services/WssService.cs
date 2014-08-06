@@ -32,6 +32,7 @@ namespace ObjectTransferWCF.Services
 
         public int Add(AccountingObjectModel accObject)
         {
+            HttpContext.Current = null;
             try
             {
                 int i = Exists(accObject.InventaryNumber);
@@ -42,7 +43,7 @@ namespace ObjectTransferWCF.Services
                     dbItem.SetValue("Description", accObject.Description);
                     dbItem.SetValue("PostingDate", accObject.PostingDate);
                     dbItem.SetValue("DeprecationDate", accObject.DeprecationDate);
-                    dbItem.SetValue("Owner", accObject.Owner);
+                    dbItem.SetValue("Owner", GetOwnerID(accObject.Owner));
                     dbItem.SetValue("IsDeleted", accObject.Deleted);
                     dbItem.Update(); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     return 1;
@@ -54,12 +55,14 @@ namespace ObjectTransferWCF.Services
             }
             catch (Exception ex)
             {
-                return 3;
+                throw new Exception(ex.Message);
+                //return 3;
             }          
         }
 
         public int Update(string OldInventaryNumber, AccountingObjectModel accObject)
         {
+            HttpContext.Current = null;
             int i = Exists(OldInventaryNumber);
             if (i == -1)
             {
@@ -76,7 +79,7 @@ namespace ObjectTransferWCF.Services
                     dbList.Items[i].SetValue("Description", accObject.Description);
                     dbList.Items[i].SetValue("PostingDate", accObject.PostingDate);
                     dbList.Items[i].SetValue("DeprecationDate", accObject.DeprecationDate);
-                    dbList.Items[i].SetValue("Owner", accObject.Owner);
+                    dbList.Items[i].SetValue("Owner", GetOwnerID(accObject.Owner));
                     dbList.Items[i].SetValue("IsDeleted", accObject.Deleted);
                     dbList.Items[i].Update();
                     return 5;
@@ -90,6 +93,7 @@ namespace ObjectTransferWCF.Services
 
         public int Delete(string InventaryNumber)
         {
+            HttpContext.Current = null;
             int i = Exists(InventaryNumber);
             if (i == -1)
             {
@@ -113,7 +117,7 @@ namespace ObjectTransferWCF.Services
 
         public void RollbackCreate(string inventaryNumber)
         {
-            dbList.Items.Where(x => x.GetValue("InventaryNumber") == inventaryNumber).FirstOrDefault().Delete();            
+            dbList.Items.Where(x => x.GetValue("InventaryNumber").ToString() == inventaryNumber).FirstOrDefault().Delete();            
         }
 
         public void RollbackUpdate(string inventaryNumber, AccountingObjectModel oldAccObject)
@@ -123,7 +127,7 @@ namespace ObjectTransferWCF.Services
 
         public void RollbackDelete(string inventaryNumber)
         {
-            dbList.Items.Where(x => x.GetValue("InventaryNumber") == inventaryNumber).FirstOrDefault().SetValue("IsDeleted", false);
+            dbList.Items.Where(x => x.GetValue("InventaryNumber").ToString() == inventaryNumber).FirstOrDefault().SetValue("IsDeleted", false);
         }
 
         public AccountingObjectModel GetItem(string inventaryNumber)
@@ -143,10 +147,17 @@ namespace ObjectTransferWCF.Services
                 return null;
         }
 
-        private int GetOwnerID()
+        private int? GetOwnerID(string fio)
         {
-            DBWeb dbWeb = dbSite.GetWeb("/");
-            dbList = dbWeb.GetList("AccountingObjects");
+            DBWeb dbWeb = dbSite.GetWeb("/");           
+            DBList dbList = dbWeb.GetList("Users");            
+            var users = dbList.Items.Where(x => x.GetValue("Имя пользователя").ToString() == fio).ToList();           
+            if (users.Count() > 1)
+                return null;
+            else if (users.Count() == 0)
+                return -1;
+            else
+                return Convert.ToInt32(users.First().GetValue("ID"));
         }
 
     }

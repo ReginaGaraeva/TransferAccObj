@@ -167,7 +167,7 @@ namespace ObjectTransferWCF
                 }
                 return responseList[response].Message;//объект учета успешно создан
             }
-            catch
+            catch (Exception ex)
             {
                 try
                 {
@@ -178,7 +178,9 @@ namespace ObjectTransferWCF
                 {
                     return responseList[12].Message;//ошибка соединения с базой данных
                 }
+                throw new Exception(ex.Message);
                 return responseList[2].Message;//ошибка создания объекта учета
+
             }
             
         }

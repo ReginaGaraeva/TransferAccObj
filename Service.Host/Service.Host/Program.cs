@@ -26,7 +26,7 @@ namespace Service.Host
                 //service.ClientCredentials.UserName.Password = @"P@ssw0rd";
                 Generator generator = new Generator();
                 Console.WriteLine(service.CreateAccountingObject(generator.GenerateInventaryNumber(7), generator.GenerateDescription(),
-                    generator.GetDate(), generator.GetDate(), generator.GenerateOwner()));
+                    generator.GetDate(), generator.GetDate(), "Кижапкина Елена" ));
             }
 
             //Generator generator = new Generator();

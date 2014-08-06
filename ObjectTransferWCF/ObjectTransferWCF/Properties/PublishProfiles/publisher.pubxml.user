@@ -26,7 +26,7 @@
       <publishTime>07/29/2014 10:49:26</publishTime>
     </File>
     <File Include="bin/ObjectTransferWCF.dll">
-      <publishTime>08/01/2014 15:55:16</publishTime>
+      <publishTime>08/06/2014 11:39:46</publishTime>
     </File>
     <File Include="bin/ObjectTransferWCF.pdb">
       <publishTime>07/24/2014 12:15:05</publishTime>
@@ -167,7 +167,7 @@
       <publishTime>07/29/2014 10:49:30</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/01/2014 15:55:17</publishTime>
+      <publishTime>08/06/2014 11:39:46</publishTime>
     </File>
   </ItemGroup>
 </Project>

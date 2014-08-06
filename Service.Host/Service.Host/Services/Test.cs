@@ -7,6 +7,8 @@ using Service.Host.Services;
 using Service.Host.ServiceReference1;
 using System.Threading;
 using Service.Host.Models;
+using WSSC.V4.SYS.DBFramework;
+using WSSC.V4.DMS.Workflow;
 
 namespace Service.Host.Services
 {
@@ -16,35 +18,52 @@ namespace Service.Host.Services
         List<ThreadModel> threadsWrapper = new List<ThreadModel>();
         int operationsCount;
         int maxServicesCount;
+        DBList users;
+        DBList objectList;
 
         public Test(int _maxServicesCount, int _operationsCount)
         {
             operationsCount = _operationsCount;
             maxServicesCount = _maxServicesCount;
+            DBSite dbSite = new DBSite("http://wsstest");
+            DBWeb dbWeb = dbSite.GetWeb("/dms/requests");
+            objectList = dbWeb.GetList("AccountingObjects");
+            dbWeb = dbSite.GetWeb("/");
+            users = dbWeb.GetList("Users");
         }
 
         public void TestItem()
         {
-            //Console.WriteLine(String.Format("Добавляю объект учета\nИнв. номер: {0}\nОписание: {1}\nДата оприходования: {2}\nДата амортизации: {3}\nМОЛ: {4}",
-            //    accObject.InventaryNumber, accObject.Description, accObject.PostingDate, accObject.DeprecationDate, accObject.Owner));
-            //Random rnd = new Random();
-            //int num = Convert.ToInt32(Thread.CurrentThread.Name);
-            //threadsWrapper[num].service = new ObjectTransferServiceClient();
-            //OpenService(num);
-            //for (int i = 0; i < operationsCount; i++)
-            //    switch (rnd.Next(3))
-            //    {
-            //        case 0:
-            //            threadsWrapper[num].service.CreateAccountingObject("");
-            //            break;
-            //        case 1:
-            //            threadsWrapper[num].service.UpdateAccountingObject("", "");
-            //            break;
-            //        case 2:
-            //            threadsWrapper[num].service.DeleteAccountingObject("");
-            //            break;
-            //    }
-            //CloseService(num);
+            Random rnd = new Random();
+            int num = Convert.ToInt32(Thread.CurrentThread.Name);
+            threadsWrapper[num].service = new ObjectTransferServiceClient();
+            OpenService(num);
+            for (int i = 0; i < operationsCount; i++)
+            {
+                string inventaryNumber = generator.GenerateInventaryNumber(7);
+                string description = generator.GenerateDescription();
+                string postingDate = generator.GetDate();
+                string deprecationDate = generator.GetDate();
+                string owner = generator.GenerateOwner();
+                switch (rnd.Next(4))
+                {
+                    case 0:
+                        Console.WriteLine(String.Format("Добавляю объект учета\nИнв. номер: {0}\nОписание: {1}\nДата оприходования: {2}\nДата амортизации: {3}\nМОЛ: {4}",
+                        inventaryNumber, description, postingDate, deprecationDate, owner));
+                        threadsWrapper[num].service.CreateAccountingObject(inventaryNumber, description, postingDate, deprecationDate, owner);
+                        break;
+                    case 1:
+                        threadsWrapper[num].service.UpdateAccountingObject("", "");
+                        break;
+                    case 2:
+                        threadsWrapper[num].service.DeleteAccountingObject(generator.GenerateInventaryNumber(7));
+                        break;
+                    case 3:
+                        threadsWrapper[num].service.DeleteAccountingObject(users.Items[rnd.Next(users.ItemsCount)].GetValue("ФИО").ToString());
+                        break;
+                }
+            }
+            CloseService(num);
         }
 
         public void Run()

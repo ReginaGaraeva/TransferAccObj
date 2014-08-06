@@ -147,11 +147,13 @@ namespace ObjectTransferWCF.Services
                 return null;
         }
 
-        private int? GetOwnerID(string fio)
+        private int? GetOwnerID(string fio, DateTime? birthDate = null)
         {
             DBWeb dbWeb = dbSite.GetWeb("/");           
-            DBList dbList = dbWeb.GetList("Users");            
-            var users = dbList.Items.Where(x => x.GetValue("Имя пользователя").ToString() == fio).ToList();           
+            DBList dbList = dbWeb.GetList("Users");
+            var users = dbList.Items.Where(x => ((x.GetValue("Имя пользователя").ToString() == fio)&&(birthDate == null)) ||
+                ((x.GetValue("Имя пользователя").ToString() == fio) && (Convert.ToDateTime(x.GetValue("Дата рождения")) == birthDate)))
+                .ToList();           
             if (users.Count() > 1)
                 return null;
             else if (users.Count() == 0)

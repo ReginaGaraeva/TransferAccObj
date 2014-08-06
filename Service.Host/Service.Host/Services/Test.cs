@@ -40,6 +40,7 @@ namespace Service.Host.Services
             OpenService(num);
             for (int i = 0; i < operationsCount; i++)
             {
+                string oldInventaryNumber = generator.GenerateInventaryNumber(7);
                 string inventaryNumber = generator.GenerateInventaryNumber(7);
                 string description = generator.GenerateDescription();
                 string postingDate = generator.GetDate();
@@ -53,14 +54,21 @@ namespace Service.Host.Services
                         threadsWrapper[num].service.CreateAccountingObject(inventaryNumber, description, postingDate, deprecationDate, owner);
                         break;
                     case 1:
-                        threadsWrapper[num].service.UpdateAccountingObject("", "");
+                        Console.WriteLine(String.Format("Изменяю объект учета (инв.номер: {0}. Такого объекта не должно существовать)\nИнв. номер: {1}\nОписание: {2}\nДата оприходования: {3}\nДата амортизации: {4}\nМОЛ: {5}",
+                        oldInventaryNumber, inventaryNumber, description, postingDate, deprecationDate, owner));
+                        threadsWrapper[num].service.UpdateAccountingObject(oldInventaryNumber, inventaryNumber, description,
+                            postingDate, deprecationDate, owner);
                         break;
                     case 2:
+                        Console.WriteLine("Удаляю объект учета с инв. номером {0}. Такого объекта нет.",inventaryNumber);
                         threadsWrapper[num].service.DeleteAccountingObject(generator.GenerateInventaryNumber(7));
                         break;
                     case 3:
-                        threadsWrapper[num].service.DeleteAccountingObject(users.Items[rnd.Next(users.ItemsCount)].GetValue("ФИО").ToString());
+                        inventaryNumber = objectList.Items[rnd.Next(objectList.ItemsCount)].GetValue("InventaryNumber").ToString();
+                        Console.WriteLine("Удаляю объект учета с инв. номером {0}", inventaryNumber);
+                        threadsWrapper[num].service.DeleteAccountingObject(inventaryNumber);
                         break;
+
                 }
             }
             CloseService(num);

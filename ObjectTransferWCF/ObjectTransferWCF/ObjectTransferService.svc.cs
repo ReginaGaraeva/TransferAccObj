@@ -178,7 +178,6 @@ namespace ObjectTransferWCF
                 {
                     return responseList[12].Message;//ошибка соединения с базой данных
                 }
-                throw new Exception(ex.Message);
                 return responseList[2].Message;//ошибка создания объекта учета
 
             }

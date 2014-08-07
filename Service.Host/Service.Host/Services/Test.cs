@@ -36,8 +36,9 @@ namespace Service.Host.Services
         {
             Random rnd = new Random();
             int num = Convert.ToInt32(Thread.CurrentThread.Name);
-            threadsWrapper[num].service = new ObjectTransferServiceClient();
+            threadsWrapper[num].service = new ObjectTransferServiceClient();          
             OpenService(num);
+            Console.WriteLine("Запущена служба № {0}", num);
             for (int i = 0; i < operationsCount; i++)
             {
                 string oldInventaryNumber = generator.GenerateInventaryNumber(7);
@@ -45,7 +46,7 @@ namespace Service.Host.Services
                 string description = generator.GenerateDescription();
                 string postingDate = generator.GetDate();
                 string deprecationDate = generator.GetDate();
-                string owner = generator.GenerateOwner();
+                string owner = users.Items[rnd.Next(users.ItemsCount)].GetValue("ФИО").ToString();
                 switch (rnd.Next(4))
                 {
                     case 0:
@@ -67,6 +68,13 @@ namespace Service.Host.Services
                         inventaryNumber = objectList.Items[rnd.Next(objectList.ItemsCount)].GetValue("InventaryNumber").ToString();
                         Console.WriteLine("Удаляю объект учета с инв. номером {0}", inventaryNumber);
                         threadsWrapper[num].service.DeleteAccountingObject(inventaryNumber);
+                        break;
+                    case 4:
+                        oldInventaryNumber = objectList.Items[rnd.Next(objectList.ItemsCount)].GetValue("InventaryNumber").ToString();
+                        Console.WriteLine(String.Format("Изменяю объект учета (инв.номер: {0}.)\nИнв. номер: {1}\nОписание: {2}\nДата оприходования: {3}\nДата амортизации: {4}\nМОЛ: {5}",
+                        oldInventaryNumber, inventaryNumber, description, postingDate, deprecationDate, owner));
+                        threadsWrapper[num].service.UpdateAccountingObject(oldInventaryNumber, inventaryNumber, description,
+                            postingDate, deprecationDate, owner);
                         break;
 
                 }

@@ -154,10 +154,8 @@ namespace ObjectTransferWCF.Services
             var users = dbList.Items.Where(x => ((x.GetValue("Имя пользователя").ToString() == fio)&&(birthDate == null)) ||
                 ((x.GetValue("Имя пользователя").ToString() == fio) && (Convert.ToDateTime(x.GetValue("Дата рождения")) == birthDate)))
                 .ToList();           
-            if (users.Count() > 1)
+            if ((users.Count() > 1)||(users.Count() == 0))
                 return null;
-            else if (users.Count() == 0)
-                return -1;
             else
                 return Convert.ToInt32(users.First().GetValue("ID"));
         }

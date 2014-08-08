@@ -23,8 +23,10 @@ namespace Service.Host
             using (var service = new Service.Host.ServiceReference1.ObjectTransferServiceClient())
             {
                 //service.ClientCredentials.UserName.UserName = @"wssdom\Администратор";
-                //service.ClientCredentials.UserName.Password = @"P@ssw0rd";
-                Test test = new Test(1, 5);
+                //service.ClientCredentials.UserName.Password = @"P@$$w0rd";
+                Console.WriteLine("Создаю тест");
+                Test test = new Test(2, 5);
+                Console.WriteLine("Запускаю тест");
                 test.Run();
                 //Generator generator = new Generator();
                 //Console.WriteLine(service.CreateAccountingObject(generator.GenerateInventaryNumber(7), generator.GenerateDescription(),

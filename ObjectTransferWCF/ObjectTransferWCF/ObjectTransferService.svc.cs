@@ -91,21 +91,6 @@ namespace ObjectTransferWCF
         }
         #endregion
 
-        public MethodModel[] GetMethodsInfo()
-        {
-            //XmlSerializer formatter = new XmlSerializer(typeof(MethodModel[]));
-            ////десериализация
-            //using (FileStream fs = new FileStream("persons.xml", FileMode.OpenOrCreate))
-            //{
-            //    MethodModel[] piy = (Person[])formatter.Deserialize(fs);
-
-            //    foreach (Person p in newPersons)
-            //    {
-            //        Console.WriteLine("Имя: {0} --- Возраст: {1}", p.Name, p.Age);
-            //    }
-            //}
-            return new MethodModel[1];
-        }
         public ObjectTransferService()
         {
             try
@@ -120,6 +105,16 @@ namespace ObjectTransferWCF
             InitResponseList();           
         }
 
+        public MethodModel[] GetMethodsInfo()
+        {
+            XmlSerializer formatter = new XmlSerializer(typeof(MethodModel[]));
+
+            using (FileStream fs = new FileStream("MethodsInfo.xml", FileMode.OpenOrCreate))
+            {
+                MethodModel[] methods = (MethodModel[])formatter.Deserialize(fs);
+                return methods;
+            }
+        }
 
         private bool CheckDbConnect()
         {           

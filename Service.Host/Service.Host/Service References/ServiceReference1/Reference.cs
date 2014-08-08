@@ -15,29 +15,20 @@ namespace Service.Host.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://objecttransferservice.ru/", ConfigurationName="ServiceReference1.IObjectTransferService")]
     public interface IObjectTransferService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/CreateAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/CreateAccountingObjectResp" +
-            "onse")]
-        string CreateAccountingObject(string inventaryNumber, string description, string postingDate, string deprecationDate, string owner);
+        [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/GetMethodsInfo", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/GetMethodsInfoResponse")]
+        ObjectTransferWCF.Models.MethodModel[] GetMethodsInfo();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/CreateAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/CreateAccountingObjectResp" +
             "onse")]
-        System.Threading.Tasks.Task<string> CreateAccountingObjectAsync(string inventaryNumber, string description, string postingDate, string deprecationDate, string owner);
+        string CreateAccountingObject(string inventaryNumber, string description, string postingDate, string deprecationDate, string owner);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/UpdateAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/UpdateAccountingObjectResp" +
             "onse")]
         string UpdateAccountingObject(string oldInventaryNumber, string inventaryNumber, string description, string postingDate, string deprecationDate, string owner);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/UpdateAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/UpdateAccountingObjectResp" +
-            "onse")]
-        System.Threading.Tasks.Task<string> UpdateAccountingObjectAsync(string oldInventaryNumber, string inventaryNumber, string description, string postingDate, string deprecationDate, string owner);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/DeleteAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/DeleteAccountingObjectResp" +
             "onse")]
         string DeleteAccountingObject(string inventaryNumber);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/DeleteAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/DeleteAccountingObjectResp" +
-            "onse")]
-        System.Threading.Tasks.Task<string> DeleteAccountingObjectAsync(string inventaryNumber);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -67,28 +58,20 @@ namespace Service.Host.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public string CreateAccountingObject(string inventaryNumber, string description, string postingDate, string deprecationDate, string owner) {
-            return base.Channel.CreateAccountingObject(inventaryNumber, description, postingDate, deprecationDate, owner);
+        public ObjectTransferWCF.Models.MethodModel[] GetMethodsInfo() {
+            return base.Channel.GetMethodsInfo();
         }
         
-        public System.Threading.Tasks.Task<string> CreateAccountingObjectAsync(string inventaryNumber, string description, string postingDate, string deprecationDate, string owner) {
-            return base.Channel.CreateAccountingObjectAsync(inventaryNumber, description, postingDate, deprecationDate, owner);
+        public string CreateAccountingObject(string inventaryNumber, string description, string postingDate, string deprecationDate, string owner) {
+            return base.Channel.CreateAccountingObject(inventaryNumber, description, postingDate, deprecationDate, owner);
         }
         
         public string UpdateAccountingObject(string oldInventaryNumber, string inventaryNumber, string description, string postingDate, string deprecationDate, string owner) {
             return base.Channel.UpdateAccountingObject(oldInventaryNumber, inventaryNumber, description, postingDate, deprecationDate, owner);
         }
         
-        public System.Threading.Tasks.Task<string> UpdateAccountingObjectAsync(string oldInventaryNumber, string inventaryNumber, string description, string postingDate, string deprecationDate, string owner) {
-            return base.Channel.UpdateAccountingObjectAsync(oldInventaryNumber, inventaryNumber, description, postingDate, deprecationDate, owner);
-        }
-        
         public string DeleteAccountingObject(string inventaryNumber) {
             return base.Channel.DeleteAccountingObject(inventaryNumber);
-        }
-        
-        public System.Threading.Tasks.Task<string> DeleteAccountingObjectAsync(string inventaryNumber) {
-            return base.Channel.DeleteAccountingObjectAsync(inventaryNumber);
         }
     }
 }

@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using WSSC;
+using ObjectTransferWCF.Models;
 
 namespace ObjectTransferWCF
 {
@@ -13,7 +14,9 @@ namespace ObjectTransferWCF
     [ServiceContract(Namespace = "http://objecttransferservice.ru/")]
     public interface IObjectTransferService
     {
-        
+        [OperationContract]
+        MethodModel[] GetMethodsInfo();
+
         [OperationContract]
         string CreateAccountingObject(string inventaryNumber, string description, string postingDate,
             string deprecationDate, string owner);
@@ -25,37 +28,7 @@ namespace ObjectTransferWCF
         [OperationContract]
         string DeleteAccountingObject(string inventaryNumber);
 
-        //[OperationContract]
-        //string GetData(int value);
-
-        //[OperationContract]
-        //CompositeType GetDataUsingDataContract(CompositeType composite);
-
-        //// TODO: Добавьте здесь операции служб
-
 
     }
 
-
-    // Используйте контракт данных, как показано в примере ниже, чтобы добавить составные типы к операциям служб.
-    //[DataContract]
-    //public class CompositeType
-    //{
-    //    bool boolValue = true;
-    //    string stringValue = "Hello ";
-
-    //    [DataMember]
-    //    public bool BoolValue
-    //    {
-    //        get { return boolValue; }
-    //        set { boolValue = value; }
-    //    }
-
-    //    [DataMember]
-    //    public string StringValue
-    //    {
-    //        get { return stringValue; }
-    //        set { stringValue = value; }
-    //    }
-    //}
 }

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://objecttransferservice.ru/" elementFormDefault="qualified" targetNamespace="http://objecttransferservice.ru/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:13313/ObjectTransferService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ObjectTransferWCF.Models" />
+  <xs:element name="GetMethodsInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMethodsInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ObjectTransferWCF.Models" minOccurs="0" name="GetMethodsInfoResult" nillable="true" type="q1:ArrayOfMethodModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAccountingObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inventaryNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="postingDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deprecationDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="owner" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAccountingObjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateAccountingObjectResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAccountingObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="oldInventaryNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inventaryNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="postingDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deprecationDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="owner" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAccountingObjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateAccountingObjectResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAccountingObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inventaryNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAccountingObjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteAccountingObjectResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

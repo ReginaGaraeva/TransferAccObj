@@ -9,26 +9,117 @@
 //------------------------------------------------------------------------------
 
 namespace Service.Host.ServiceReference1 {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MethodModel", Namespace="http://schemas.datacontract.org/2004/07/ObjectTransferWCF.Models")]
+    [System.SerializableAttribute()]
+    public partial class MethodModel : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string InfoField;
+        
+        private string[] ParamsField;
+        
+        private string SignatureField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Info {
+            get {
+                return this.InfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InfoField, value) != true)) {
+                    this.InfoField = value;
+                    this.RaisePropertyChanged("Info");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string[] Params {
+            get {
+                return this.ParamsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ParamsField, value) != true)) {
+                    this.ParamsField = value;
+                    this.RaisePropertyChanged("Params");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Signature {
+            get {
+                return this.SignatureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SignatureField, value) != true)) {
+                    this.SignatureField = value;
+                    this.RaisePropertyChanged("Signature");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://objecttransferservice.ru/", ConfigurationName="ServiceReference1.IObjectTransferService")]
     public interface IObjectTransferService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/GetMethodsInfo", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/GetMethodsInfoResponse")]
-        ObjectTransferWCF.Models.MethodModel[] GetMethodsInfo();
+        Service.Host.ServiceReference1.MethodModel[] GetMethodsInfo();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/GetMethodsInfo", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/GetMethodsInfoResponse")]
+        System.Threading.Tasks.Task<Service.Host.ServiceReference1.MethodModel[]> GetMethodsInfoAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/CreateAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/CreateAccountingObjectResp" +
             "onse")]
         string CreateAccountingObject(string inventaryNumber, string description, string postingDate, string deprecationDate, string owner);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/CreateAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/CreateAccountingObjectResp" +
+            "onse")]
+        System.Threading.Tasks.Task<string> CreateAccountingObjectAsync(string inventaryNumber, string description, string postingDate, string deprecationDate, string owner);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/UpdateAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/UpdateAccountingObjectResp" +
             "onse")]
         string UpdateAccountingObject(string oldInventaryNumber, string inventaryNumber, string description, string postingDate, string deprecationDate, string owner);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/UpdateAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/UpdateAccountingObjectResp" +
+            "onse")]
+        System.Threading.Tasks.Task<string> UpdateAccountingObjectAsync(string oldInventaryNumber, string inventaryNumber, string description, string postingDate, string deprecationDate, string owner);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/DeleteAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/DeleteAccountingObjectResp" +
             "onse")]
         string DeleteAccountingObject(string inventaryNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://objecttransferservice.ru/IObjectTransferService/DeleteAccountingObject", ReplyAction="http://objecttransferservice.ru/IObjectTransferService/DeleteAccountingObjectResp" +
+            "onse")]
+        System.Threading.Tasks.Task<string> DeleteAccountingObjectAsync(string inventaryNumber);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -58,20 +149,36 @@ namespace Service.Host.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public ObjectTransferWCF.Models.MethodModel[] GetMethodsInfo() {
+        public Service.Host.ServiceReference1.MethodModel[] GetMethodsInfo() {
             return base.Channel.GetMethodsInfo();
+        }
+        
+        public System.Threading.Tasks.Task<Service.Host.ServiceReference1.MethodModel[]> GetMethodsInfoAsync() {
+            return base.Channel.GetMethodsInfoAsync();
         }
         
         public string CreateAccountingObject(string inventaryNumber, string description, string postingDate, string deprecationDate, string owner) {
             return base.Channel.CreateAccountingObject(inventaryNumber, description, postingDate, deprecationDate, owner);
         }
         
+        public System.Threading.Tasks.Task<string> CreateAccountingObjectAsync(string inventaryNumber, string description, string postingDate, string deprecationDate, string owner) {
+            return base.Channel.CreateAccountingObjectAsync(inventaryNumber, description, postingDate, deprecationDate, owner);
+        }
+        
         public string UpdateAccountingObject(string oldInventaryNumber, string inventaryNumber, string description, string postingDate, string deprecationDate, string owner) {
             return base.Channel.UpdateAccountingObject(oldInventaryNumber, inventaryNumber, description, postingDate, deprecationDate, owner);
         }
         
+        public System.Threading.Tasks.Task<string> UpdateAccountingObjectAsync(string oldInventaryNumber, string inventaryNumber, string description, string postingDate, string deprecationDate, string owner) {
+            return base.Channel.UpdateAccountingObjectAsync(oldInventaryNumber, inventaryNumber, description, postingDate, deprecationDate, owner);
+        }
+        
         public string DeleteAccountingObject(string inventaryNumber) {
             return base.Channel.DeleteAccountingObject(inventaryNumber);
+        }
+        
+        public System.Threading.Tasks.Task<string> DeleteAccountingObjectAsync(string inventaryNumber) {
+            return base.Channel.DeleteAccountingObjectAsync(inventaryNumber);
         }
     }
 }

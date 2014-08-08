@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ObjectTransferDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="ObjectTransferDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
   <EntityContainer Name="ObjectTransferDBEntities" p1:LazyLoadingEnabled="true">
     <EntitySet Name="Logs" EntityType="ObjectTransferDBModel.Logs" />
     <EntitySet Name="Tasks" EntityType="ObjectTransferDBModel.Tasks" />
@@ -8,7 +8,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
     <Property Type="Boolean" Name="MessageType" Nullable="false" />
     <Property Type="String" Name="Message" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -18,7 +18,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Type="String" Name="Task" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Parameters" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />

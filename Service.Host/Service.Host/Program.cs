@@ -1,18 +1,18 @@
-﻿using System;
+﻿using ObjectTransferWCF;
+using ObjectTransferWCF.Models;
+using ObjectTransferWCF.Services;
+using Service.Host;
+using Service.Host.Models;
+using Service.Host.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
+using System.ServiceModel.Activation;
 using System.Text;
 using System.Threading.Tasks;
-using Service.Host;
-using Service.Host.Services;
-using Service.Host.Models;
-using WSSC.V4.SYS.DBFramework;
 using WSSC.V4.DMS.Workflow;
-using ObjectTransferWCF.Services;
-using System.ServiceModel.Activation;
-using ObjectTransferWCF.Models;
-using ObjectTransferWCF;
+using WSSC.V4.SYS.DBFramework;
 
 namespace Service.Host
 {

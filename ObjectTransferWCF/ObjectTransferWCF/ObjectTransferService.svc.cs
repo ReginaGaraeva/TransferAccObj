@@ -109,7 +109,7 @@ namespace ObjectTransferWCF
         {
             XmlSerializer formatter = new XmlSerializer(typeof(MethodModel[]));
 
-            using (FileStream fs = new FileStream("MethodsInfo.xml", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(@"C:\inetpub\wwwroot\ObjectTransferService\MethodsInfo.xml", FileMode.OpenOrCreate))
             {
                 MethodModel[] methods = (MethodModel[])formatter.Deserialize(fs);
                 return methods;

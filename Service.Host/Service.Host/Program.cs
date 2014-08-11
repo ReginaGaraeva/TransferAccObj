@@ -25,12 +25,14 @@ namespace Service.Host
                 //service.ClientCredentials.UserName.UserName = @"wssdom\Администратор";
                 //service.ClientCredentials.UserName.Password = @"P@$$w0rd";
                 Console.WriteLine("Создаю тест");
-                Test test = new Test(2, 5);
+                Test test = new Test(1, 10);
                 Console.WriteLine("Запускаю тест");
                 test.Run();
-                //Generator generator = new Generator();
-                //Console.WriteLine(service.CreateAccountingObject(generator.GenerateInventaryNumber(7), generator.GenerateDescription(),
-                //    generator.GetDate(), generator.GetDate(), "Кижапкина Елена" ));
+                //Service.Host.ServiceReference1.MethodModel[] m  = service.GetMethodsInfo();
+                //foreach (var item in m)
+                //{
+                //    Console.WriteLine(item.Signature);
+                //}
             }
             Console.ReadLine();
         }

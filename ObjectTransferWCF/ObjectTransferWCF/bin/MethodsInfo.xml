@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<ArrayOfMethodModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<MethodModel>
+		<Signature>public string CreateAccountingObject(string inventaryNumber, string description, string postingDate,string deprecationDate, string owner)</Signature>
+		<Params>inventaryNumber - Инвентарный номер объекта учета; description - Описание объекта учета; postingDate - Дата оприходования; deprecationDate - Дата амортизации;owner - Материально ответственное лицо;</Params>
+		<Info>Метод создает объект учета в СЭД. В качестве ответа возвращает строчку с результатом операции.</Info>
+	</MethodModel>
+
+	<MethodModel>
+	
+		<Signature>
+		public string UpdateAccountingObject(string oldInventaryNumber, string inventaryNumber, string description, string postingDate,
+        string deprecationDate, string owner)
+		</Signature>
+		
+		<Params> 
+		oldInventaryNumber - Старый инвентарный номер;  inventaryNumber - Новый инвентарный номер;  description - Описание;  postingDate - Дата оприходования;
+        deprecationDate - Дата амортизации;  owner - Материально ответственное лицо;
+		</Params>
+		
+		<Info> 
+		Мето обновляет информацию об объекте учета в СЭД. В качестве ответа возвращает строчку  с результатом операции.
+		</Info>
+	</MethodModel>
+	
+	<MethodModel>
+		<Signature> public string DeleteAccountingObject(string inventaryNumber)</Signature>
+		<Params> inventaryNumber - Инвентарный номер</Params>
+		<Info>Метод помечает на удаление объект учета в СЭД. В качестве ответа возвращает строчку  с результатом операции. </Info>
+	</MethodModel>
+</ArrayOfMethodModel>

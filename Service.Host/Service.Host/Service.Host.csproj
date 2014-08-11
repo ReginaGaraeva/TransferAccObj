@@ -110,7 +110,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IGenerator.cs" />
-    <Compile Include="Models\MethodModel.cs" />
     <Compile Include="Models\ThreadModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

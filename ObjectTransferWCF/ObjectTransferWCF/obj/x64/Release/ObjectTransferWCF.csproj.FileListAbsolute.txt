@@ -46,3 +46,4 @@ C:\Users\1\Desktop\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\bin\ru\Ent
 C:\Users\1\Desktop\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\obj\x64\Release\ObjectTransferWCF.csprojResolveAssemblyReference.cache
 C:\Users\1\Desktop\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\obj\x64\Release\ObjectTransferWCF.dll
 C:\Users\1\Desktop\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\obj\x64\Release\ObjectTransferWCF.pdb
+D:\Own\GitHub\TransferAccObj\ObjectTransferWCF\ObjectTransferWCF\obj\x64\Release\ObjectTransferWCF.csprojResolveAssemblyReference.cache

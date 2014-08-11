@@ -132,7 +132,7 @@ namespace ObjectTransferWCF.Services
 
         public AccountingObjectModel GetItem(string inventaryNumber)
         {
-            DBItem dbItem = dbList.Items.Where(x => x.GetValue("InventaryNumber") == inventaryNumber).FirstOrDefault();
+            DBItem dbItem = dbList.Items.Where(x => x.GetValue("InventaryNumber").ToString() == inventaryNumber).FirstOrDefault();
             if (dbItem != null)
                 return new AccountingObjectModel()
                 {
